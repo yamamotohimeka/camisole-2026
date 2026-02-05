@@ -1,0 +1,114 @@
+@use "../mixin" as *;
+.recruit {
+  margin-top: -180px; // faq との間隔を詰める
+  padding-bottom: 80px; // フッターとの余白を確保（被らないように）
+  position: relative;
+
+  &__title {
+    top: 90px;
+  }
+
+  &__inner-title {
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 29px;
+    letter-spacing: 0.1rem;
+    font-family: "FOT-ハミング Std", sans-serif;
+    text-align: center;
+
+    border-top: 2px solid #00b1b2;
+    border-bottom: 2px solid #00b1b2;
+    color: #00b1b2;
+    position: relative;
+
+    margin: 0 auto;
+    width: 800px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 37px;
+      background-color: #00b1b2;
+      position: absolute;
+      left: 75px;
+      top: 11px;
+      transform: rotate(14deg);
+    }
+
+    &-content {
+      margin-top: 23px;
+      font-size: 25px;
+      line-height: 1.5;
+      color: #00b1b2;
+      text-align: center;
+      letter-spacing: 0.09rem;
+      font-family: "FOT-ハミング Std", sans-serif;
+    }
+  }
+  &__inner-content {
+    margin-top: 58px;
+    font-size: 17px;
+    line-height: 1.47;
+
+    text-align: center;
+    letter-spacing: 0;
+    font-family: initial;
+    font-weight: bold;
+    span {
+      color: #ce0000;
+    }
+    &-items {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 19px;
+    }
+    &-item {
+      margin-top: 23px;
+      font-size: 23px;
+      line-height: 1.5;
+      background-color: #00b1b2;
+      color: #ffffff;
+      letter-spacing: 0.09rem;
+      font-family: "FOT-ハミング Std", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+      width: 400px;
+      height: 82px;
+      margin: 0 auto;
+      a {
+        display: block;
+      }
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__contact {
+    margin: 81px auto 0;
+    width: 800px;
+    &-title {
+      padding-top: 27px;
+      font-size: 23px;
+      font-weight: bold;
+      text-align: center;
+      background-color: $base;
+      color: #ffffff;
+      font-family: "FOT-ハミング Std", sans-serif;
+      letter-spacing: 0.1rem;
+      border-radius: 50px;
+      width: 400px;
+      height: 82px;
+      margin: 0 auto;
+    }
+  }
+}

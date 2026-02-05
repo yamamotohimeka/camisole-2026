@@ -1,0 +1,310 @@
+@use "../mixin" as *;
+
+.form {
+  font-size: 24px;
+  font-family: initial;
+  padding-top: 60px;
+
+  @include pc {
+    font-size: calc(24vw / (1240 / 100));
+  }
+  @include tab {
+    font-size: calc(34vw / (768 / 100));
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  &-box:first-of-type .hissu::after {
+    content: "※必須(本名を入力する必要はありません)";
+  }
+  .error {
+    display: block;
+    position: absolute;
+    top: 120%;
+    left: 35%;
+    width: 100%;
+    color: #ce0000;
+    box-sizing: border-box;
+    @include tab {
+      top: 105%;
+      left: 0;
+      font-size: calc(26vw / (768 / 100));
+    }
+  }
+  .hissu {
+    &::after {
+      content: "※必須";
+      margin-left: 16px;
+      color: #ce0000;
+      font-size: 14px;
+      @include pc {
+        margin-left: calc(-4vw / (1280 / 100));
+        font-size: calc(22vw / (1280 / 100));
+      }
+      @include sp {
+        font-size: calc(18vw / (440 / 100));
+      }
+    }
+  }
+
+  &-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    @include pc {
+      margin: calc(40vw / (1240 / 100)) 0;
+    }
+    @include tab {
+      flex-direction: column;
+      margin: calc(40vw / (768 / 100)) 0;
+
+      gap: 0 calc(88vw / (768 / 100));
+    }
+
+    label {
+      padding: 8px 0;
+      color: #000;
+      text-align: left;
+      font-size: 20px;
+      padding-left: 31px;
+
+      @include pc {
+        padding: calc(8vw / (1200 / 100)) 0;
+      }
+      @include tab {
+        width: 100%;
+        margin-bottom: calc(16vw / (768 / 100));
+      }
+      &-text {
+        width: 100px;
+        @include pc {
+          width: calc(100vw / (1200 / 100));
+        }
+      }
+    }
+    input {
+      padding: 23px 47px;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+      width: 100%;
+      @include pc {
+        padding: calc(8vw / (1240 / 100)) calc(12vw / (1240 / 100));
+      }
+      @include tab {
+        width: 100%;
+        padding: calc(8vw / (768 / 100)) calc(12vw / (768 / 100));
+      }
+    }
+
+    &-radio {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px 31px;
+
+      &-label {
+        width: 100%;
+      }
+      &-inner {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        input {
+          width: 20px;
+          height: 20px;
+        }
+        label {
+          font-size: 20px;
+          width: auto;
+        }
+      }
+    }
+  }
+  textarea {
+    padding: 8px 12px;
+    border-radius: 8px;
+    resize: none;
+    background-color: #f0f0f0;
+    @include pc {
+      padding: calc(8vw / (1200 / 100)) calc(12vw / (1200 / 100));
+      border-radius: calc(8vw / (1200 / 100));
+    }
+    @include tab {
+      width: 100%;
+      height: calc(645vw / (768 / 100));
+      margin-top: calc(22vw / (768 / 100));
+      border-radius: calc(16vw / (768 / 100));
+    }
+  }
+
+  &-textarea {
+    align-items: flex-start;
+  }
+  &-select {
+    // display: flex;
+    // align-items: center;
+    // margin-top: 70px;
+    // margin-bottom: -24px;
+    // margin-left: 288px;
+    // gap: 0 20px;
+
+    @include pc {
+      margin-top: calc(70vw / (1200 / 100));
+      margin-bottom: calc(-24vw / (1200 / 100));
+      margin-left: calc(388vw / (1200 / 100));
+      gap: 0 calc(20vw / (1200 / 100));
+    }
+    @include tab {
+      margin-top: calc(70vw / (768 / 100));
+      margin-left: 0;
+    }
+    select {
+      margin: 0 8px;
+      padding: 4px 12px;
+      border: 1px solid #000;
+      border-radius: 4px;
+    }
+    &-label {
+      display: flex;
+      align-items: center;
+      color: #ba9868;
+      font-size: 26px;
+      @include pc {
+        font-size: calc(26vw / (1200 / 100));
+      }
+      @include tab {
+        font-size: calc(32vw / (768 / 100));
+      }
+      input {
+        margin-right: 8px;
+        @include pc {
+          margin-right: calc(8vw / (1240 / 100));
+        }
+      }
+      &:nth-of-type(1) {
+        margin-right: 3%;
+      }
+    }
+  }
+  &-submit {
+    position: relative;
+    text-align: center;
+    @include pc {
+      margin-top: calc(76vw / (1200 / 100));
+    }
+    @include tab {
+      margin-top: calc(60vw / (768 / 100));
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 590px;
+      width: 42px;
+      height: 34px;
+      transform: translateY(-50%);
+      @include pc {
+        left: calc(590vw / (1200 / 100));
+        width: calc(42vw / (1200 / 100));
+        height: calc(34vw / (1200 / 100));
+      }
+      @include tab {
+        left: calc(428vw / (768 / 100));
+      }
+      @include sp {
+        left: calc(278vw / (440 / 100));
+        width: calc(25vw / (440 / 100));
+        height: calc(20vw / (440 / 100));
+      }
+    }
+    input {
+      width: 40%;
+      padding: 20px 0;
+      color: #fff;
+      font-size: 30px;
+      letter-spacing: 1rem;
+      text-align: center;
+      background: #ff7687;
+      border-radius: 40px;
+      @include pc {
+        padding: calc(20vw / (1200 / 100)) 0;
+        font-size: calc(30vw / (1200 / 100));
+        border-radius: calc(16vw / (1280 / 100));
+      }
+      @include tab {
+        font-size: calc(30vw / (768 / 100));
+      }
+      @include sp {
+        width: 100%;
+        padding: calc(12vw / (440 / 100)) 0;
+        font-size: calc(22vw / (440 / 100));
+      }
+    }
+  }
+
+  .box {
+    margin: 0 auto;
+
+    .form-confirm {
+      color: #000;
+      padding-bottom: 40px;
+      text-align: center;
+      line-height: 1.5;
+      h4 {
+        font-size: 28px;
+        padding-bottom: 10px;
+      }
+    }
+    .form-box-input {
+      color: #000;
+    }
+  }
+}
+
+/********************************************
+* Now Loading
+********************************************/
+#form-load {
+  display: none;
+}
+.loader {
+  margin: 0 auto;
+  border: 12px solid #fafafa;
+  border-radius: 50%;
+  border-top: 12px solid #3498db;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.load1 {
+  animation: sk-scaleout 1s infinite ease-in-out;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
+  text-align: center;
+  background-color: #b1b1b1;
+  color: #ffffff;
+  opacity: 0.8;
+  width: 800px;
+  p {
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+  }
+}

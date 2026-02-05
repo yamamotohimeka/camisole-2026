@@ -1,0 +1,45 @@
+@use "../mixin" as *;
+.footer {
+  flex-shrink: 0; // bodyのflexレイアウトでフッター下の余白を防ぐ
+  background-color: $base;
+  color: #fff;
+  width: 100%;
+  position: relative;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+  }
+  &__logo {
+    width: 162px;
+    img {
+      width: 100%;
+    }
+  }
+  &__nav {
+    width: 1200px;
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    &-link {
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+  &__copyright {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+}

@@ -1,0 +1,153 @@
+@use "../mixin" as *;
+.salary {
+  padding-top: 242px;
+  &__inner {
+    position: relative;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      width: 1123px;
+      height: 476px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &-inner {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+          font-size: 49px;
+          font-family: "あかずきん", sans-serif;
+          font-weight: bold;
+          span {
+            font-size: 34px;
+          }
+        }
+      }
+      // 1番目のコース（オナクラコース）
+      &:nth-child(1) {
+        background-image: url(../img/salary1.png);
+
+        h3 {
+          color: #00b1ff;
+        }
+        .salary__content-title {
+          color: #00b1ff;
+        }
+        .salary__content-price {
+          color: #00b1ff;
+        }
+      }
+
+      // 2番目のコース（手コキコース）
+      &:nth-child(2) {
+        background-image: url(../img/salary2.png);
+        h3 {
+          color: #ff7687;
+        }
+        .salary__content-description {
+          padding-left: 0;
+          padding-right: 62px;
+          padding-top: 44px;
+        }
+        .salary__content-title {
+          color: #ff7687;
+        }
+        .salary__content-price {
+          color: #ff7687;
+          &-list {
+            padding-left: 0;
+            padding-right: 96px;
+          }
+        }
+        .salary__content-item-inner {
+          align-items: flex-end;
+          left: 0;
+          right: 0;
+        }
+      }
+
+      // 3番目のコース（おあずけVIPコース）
+      &:nth-child(3) {
+        background-image: url(../img/salary3.png);
+        h3 {
+          color: #00cc87;
+        }
+        .salary__content-title {
+          color: #00cc87;
+        }
+        .salary__content-price {
+          color: #00cc87;
+        }
+      }
+    }
+
+    &-description {
+      padding-top: 47px;
+      padding-left: 62px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-title {
+      font-size: 33px;
+      font-weight: bold;
+      font-family: "FOT-ハミング Std", sans-serif;
+      text-align: center;
+    }
+
+    &-text {
+      padding-top: 20px;
+      font-size: 16px;
+      color: #000000;
+      text-align: center;
+    }
+
+    &-price {
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        padding-top: 47px;
+        padding-left: 62px;
+      }
+
+      font-size: 49px;
+      color: #000000;
+      text-align: center;
+      font-family: "FOT-ハミング Std", sans-serif;
+      span {
+        font-size: 32px;
+        font-weight: bold;
+      }
+    }
+  }
+
+
+
+  &__banner {
+    padding-top: 235px;
+    text-align: center;
+
+    img {
+      width: 1061px;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@use "../mixin" as *;
+.top {
+  width: 100%;
+  position: relative;
+  padding-bottom: 137px;
+  height: 70vh;
+
+  &__inner {
+    margin-top: 96px;
+  }
+
+  &__swiper {
+    width: 1090px !important;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-left: unset !important;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .top__content-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 48px !important;
+    left: 0;
+    transform: none;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 28px;
+    width: auto;
+    height: auto;
+    margin-right: 80px;
+
+    .swiper-pagination-bullet {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 2px solid $navy;
+      color: $navy;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      margin: 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.1);
+      }
+
+      &.swiper-pagination-bullet-active {
+        background-color: $navy;
+        color: #fff;
+        border-color: $navy;
+      }
+    }
+  }
+}

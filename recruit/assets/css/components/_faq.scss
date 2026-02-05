@@ -1,0 +1,176 @@
+@use "../mixin" as *;
+.faq {
+  margin-top: 68px;
+  position: relative;
+  &__title {
+    top: 90px;
+  }
+
+  &__inner-title {
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 29px;
+    letter-spacing: 0.1rem;
+    font-family: "FOT-ハミング Std", sans-serif;
+    text-align: center;
+
+    border-top: 2px solid #ffb100;
+    border-bottom: 2px solid #ffb100;
+    color: #ffb100;
+    position: relative;
+
+    margin: 0 auto;
+    width: 800px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 37px;
+      background-color: #ffb100;
+      position: absolute;
+      left: 75px;
+      top: 11px;
+      transform: rotate(14deg);
+    }
+  }
+
+  &__inner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 800px;
+    margin: 70px auto 0;
+    font-family: initial;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+
+      &-title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 20px 18px 80px;
+
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        border-radius: 40px;
+        background-color: #ffb100;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+
+        &::before {
+          content: "Q";
+          display: inline-block;
+          font-size: 35px;
+          font-weight: bold;
+          position: absolute;
+          left: 31px;
+        }
+
+        &-text {
+          flex: 1;
+          text-align: left;
+        }
+
+        &-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          background-color: #ffffff;
+          border-radius: 50%;
+          color: #ffb100;
+          font-size: 16px;
+          transition: transform 0.3s ease;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          flex-shrink: 0;
+
+          // Font Awesomeの疑似要素にpositionを指定
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        // 閉じている状態（デフォルト）
+        &:not(.is-open) {
+          // border-bottom-left-radius: 0;
+          // border-bottom-right-radius: 0;
+          // border-bottom: 2px solid #ffb100;
+
+          .faq__inner-content-item-title-icon {
+            transform: translateY(-50%) rotate(180deg);
+            &::before {
+              transform: translate(-50%, -50%) rotate(180deg);
+            }
+          }
+        }
+
+        // 開いている状態
+        &.is-open {
+          // border-bottom-left-radius: 20px;
+          // border-bottom-right-radius: 20px;
+
+          .faq__inner-content-item-title-icon {
+            transform: translateY(-50%) rotate(0deg);
+            &::before {
+              transform: translate(-50%, -50%) rotate(0deg);
+            }
+          }
+        }
+      }
+
+      &-answer {
+        font-size: 17px;
+        letter-spacing: -0.01rem;
+        border: 2px solid #ffb100;
+        border-top: none;
+        border-radius: 0 0 20px 20px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 42px;
+        line-height: 1.36;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+
+        &::before {
+          content: "A";
+          display: block;
+          font-size: 44px;
+          font-weight: bold;
+          color: #ffb100;
+          flex-shrink: 0;
+        }
+
+        // 開いている状態
+        .faq__inner-content-item.is-open & {
+          max-height: 1000px;
+          padding: 15px 20px 25px 63px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

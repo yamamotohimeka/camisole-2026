@@ -1,0 +1,402 @@
+@use "mixin" as *;
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+html {
+  scroll-behavior: auto; // Lenis使用時はautoに設定（Lenisがスムーススクロールを制御）
+  overscroll-behavior: auto;
+  height: 100%;
+}
+li {
+  list-style-type: none;
+}
+.main-top {
+  padding-top: 114px;
+  @media (max-width: 1500px) {
+    padding-top: calc(100vw / (1500 / 100));
+  }
+  @include pc {
+    padding-top: calc(70vw / (1200 / 100));
+  }
+  @include tab {
+    margin-top: calc(120vw / (768 / 100));
+    padding-top: 0;
+  }
+}
+
+#chamo-window .chamo-chatlog-wrapper {
+  overscroll-behavior: auto;
+}
+main {
+  flex: 1 0 auto; // フッターを最下部に寄せ、フッター下の余白を防ぐ
+  width: 100%;
+  // セクション間の余白を調整
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .container {
+    max-width: 1200px;
+    @include center;
+  }
+}
+.quotation {
+  margin-left: -14px;
+  margin-right: -14px;
+}
+.fixed {
+  position: fixed !important;
+  width: 100%;
+  background: #d00000;
+  top: 0;
+  z-index: 90;
+}
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-position: top center;
+  font-variant-ligatures: none;
+  font-family: "A-OTF リュウミン Pr5", "a-otf-ryumin-pr6n", serif;
+  font-weight: 300;
+  color: #000;
+  background-size: cover;
+  @include pc {
+  }
+  @include tab {
+    background: url(../img/main-bg-sp.jpg) no-repeat top center;
+    background-size: cover;
+    background-position: top center;
+  }
+}
+img {
+  max-width: 100%;
+}
+.block {
+  display: block !important;
+}
+
+.none {
+  display: none !important;
+}
+
+.pc {
+  display: block !important;
+  @include tab {
+    display: none !important;
+  }
+}
+
+.tab {
+  display: none !important;
+  @include tab {
+    display: block !important;
+  }
+}
+.pc-words {
+  @include sp {
+    display: none !important;
+  }
+}
+.sp-words {
+  display: none !important;
+  @include sp {
+    display: block !important;
+  }
+}
+.recruit {
+  @include tab {
+    padding-top: calc(136vw / (768 / 100));
+  }
+}
+
+.container {
+  max-width: 1200px;
+  @include center;
+  @include pc {
+    max-width: calc(1200vw / (1280 / 100));
+  }
+  @include tab {
+    max-width: 96%;
+  }
+}
+
+.flex {
+  @include flex;
+}
+
+.flex-low {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-around {
+  @include flex-around;
+}
+
+/* ボタンで表示・非表示JSで値操作 */
+[data-display="hide"] {
+  display: none;
+}
+
+[data-display="show"] {
+  display: block;
+}
+
+.fadeUp {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.fadeUp.show-fadeUp {
+  animation: fadeUp 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn1 {
+  opacity: 0;
+}
+
+.fadeIn1.show-fadeIn1 {
+  animation: fadeIn 1.1s ease-in-out forwards;
+}
+
+.fadeIn2 {
+  opacity: 0;
+}
+
+.fadeIn2.show-fadeIn2 {
+  animation: fadeIn 1.1s 0.6s ease-in-out forwards;
+}
+
+.fadeIn3 {
+  opacity: 0;
+}
+
+.fadeIn3.show-fadeIn3 {
+  animation: fadeIn 1.1s 1.1s ease-in-out forwards;
+}
+
+.fadeIn4 {
+  opacity: 0;
+}
+
+.fadeIn4.show-fadeIn4 {
+  animation: fadeIn 1.1s 1.7s ease-in-out forwards;
+}
+
+.fadeIn5 {
+  opacity: 0;
+}
+
+.fadeIn5.show-fadeIn5 {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+// Lenisの[data-fade]/[data-animate]用：初期状態は非表示にしておく
+[data-fade],
+[data-animate] {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bound1 {
+  opacity: 0;
+}
+
+.bound1.show-bound1 {
+  animation: bound 2s 0.6s linear forwards;
+}
+
+.bound2 {
+  opacity: 0;
+}
+
+.bound2.show-bound2 {
+  animation: bound 2s 1s linear forwards;
+}
+
+.bound3 {
+  opacity: 0;
+}
+
+.bound3.show-bound3 {
+  animation: bound 2s 1.6s linear forwards;
+}
+
+@keyframes bound {
+  0% {
+    transform: translate(0%, -48%);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(0%, 0%) scale(0.95);
+  }
+  40% {
+    transform: translate(0%, -12%);
+    opacity: 1;
+  }
+  55% {
+    transform: translate(0%, 0%) scale(0.95);
+  }
+  60% {
+    transform: translate(0%, -6%);
+  }
+  70% {
+    transform: translate(0%, 0%) scale(0.95);
+  }
+  75% {
+    transform: translate(0%, -2.4%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+@font-face {
+  font-family: "FOT-ハミング Std";
+  src: url(../font/FOT-HUMMINGSTD-B.OTF) format("opentype");
+}
+@font-face {
+  font-family: "あかずきん";
+  src: url(../font/AKAZUKIPOP.OTF) format("opentype");
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-align: center;
+  font-size: 20px;
+  color: $navy;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 50px;
+    background-color: $navy;
+  }
+  &::after {
+    content: "";
+    display: block;
+    background-image: url(../img/section-title-deco.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 27px 27px;
+    width: 27px;
+    height: 27px;
+  }
+}
+
+// ページトップへ戻るボタン
+.back-to-top {
+  position: fixed;
+  right: 44px;
+  bottom: 80px;
+  z-index: 120;
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  border: 2px solid $base;
+  background: #fff;
+  color: $base;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &__icon {
+    line-height: 1;
+    display: grid;
+    place-items: center;
+
+    i {
+      font-size: 16px;
+      line-height: 1;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.is-show {
+    opacity: 0.95;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  @include sp {
+    right: 16px;
+    bottom: 16px;
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+
+    &__icon {
+      i {
+        font-size: 14px;
+      }
+    }
+    &__text {
+      font-size: 11px;
+    }
+  }
+}

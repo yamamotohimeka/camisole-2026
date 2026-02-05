@@ -1,0 +1,17 @@
+//page
+@use "reset";
+@use "mixin" as *;
+@use "base";
+
+//component
+@use "components/header";
+@use "components/footer";
+@use "components/top";
+@use "components/concept";
+@use "components/standard";
+@use "components/salary";
+@use "components/simulation";
+@use "components/working";
+@use "components/faq";
+@use "components/recruit";
+@use "components/form";

@@ -1,0 +1,245 @@
+@use "../mixin" as *;
+.simulation {
+  margin-top: 156px;
+  position: relative;
+  &__title {
+    top: 90px;
+  }
+
+  &__inner-title {
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 29px;
+    letter-spacing: 0.1rem;
+    font-family: "FOT-ハミング Std", sans-serif;
+    text-align: center;
+
+    border-top: 2px solid #00b1ff;
+    border-bottom: 2px solid #00b1ff;
+    color: #00b1ff;
+    position: relative;
+
+    margin: 0 auto;
+    width: 800px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 37px;
+      background-color: #00b1ff;
+      position: absolute;
+      left: 75px;
+      top: 11px;
+      transform: rotate(14deg);
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+    width: 1081px;
+
+    &-item {
+      display: flex;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      font-family: "FOT-ハミング Std", sans-serif;
+
+      padding: 53px 65px;
+      gap: 40px;
+
+      // 1番目: 青い背景
+      &:nth-child(1) {
+        background-color: #00b7ff15;
+      }
+
+      // 2番目: ピンクがかった赤の背景
+      &:nth-child(2) {
+        background-color: #ff768615;
+      }
+
+      // 3番目: 緑の背景
+      &:nth-child(3) {
+        background-color: #00cc8815;
+      }
+
+      &-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      &-title {
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 0.12rem;
+        text-align: center;
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      &-name-time {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 6px;
+      }
+
+      &-name {
+        padding-right: 23px;
+        font-size: 22px;
+      }
+
+      &-time {
+        font-size: 20px;
+        letter-spacing: 0.29em;
+        padding: 3px 30px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        display: inline-block;
+        width: fit-content;
+        margin: 0;
+      }
+
+      &-course-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        color: #000000;
+      }
+
+      &-course {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        font-family: initial;
+      }
+
+      &-course-name {
+        font-size: 19px;
+      }
+
+      &-course-price {
+        padding-right: 57px;
+        font-size: 19px;
+      }
+
+      &-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+
+      &-income {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 16px;
+        align-items: baseline;
+        // margin: 0 0 20px 0;
+        width: 100%;
+      }
+
+      &-income-label {
+        font-size: 54px;
+        font-weight: bold;
+        opacity: 0.9;
+        text-align: left;
+        justify-self: start;
+        span {
+          font-size: 42px;
+        }
+      }
+
+      &-income-value {
+        font-size: 54px;
+        font-weight: bold;
+        opacity: 0.9;
+        margin: 0;
+        text-align: right;
+        justify-self: end;
+        span {
+          font-size: 41px;
+        }
+      }
+
+      &-right-work {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: right;
+        letter-spacing: 0.3rem;
+      }
+
+      &-right-days {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: right;
+        letter-spacing: 0.3rem;
+        padding-top: 35px;
+      }
+
+      // 各ブロックのテキストカラー調整
+      &:nth-child(1) {
+        .simulation-content-item-title,
+        .simulation-content-item-name,
+        .simulation-content-item-right-work,
+        .simulation-content-item-right-days,
+        .simulation-content-item-income-label,
+        .simulation-content-item-income-value {
+          color: #00b1ff;
+        }
+        .simulation-content-item-time {
+          background-color: #00b1ff;
+          color: #ffffff;
+        }
+      }
+
+      &:nth-child(2) {
+        .simulation-content-item-title,
+        .simulation-content-item-name,
+        .simulation-content-item-right-work,
+        .simulation-content-item-right-days,
+        .simulation-content-item-income-label,
+        .simulation-content-item-income-value {
+          color: #ff7687;
+        }
+        .simulation-content-item-time {
+          background-color: #ff7687;
+          color: #ffffff;
+        }
+      }
+
+      &:nth-child(3) {
+        .simulation-content-item-title,
+        .simulation-content-item-name,
+        .simulation-content-item-right-work,
+        .simulation-content-item-right-days,
+        .simulation-content-item-income-label,
+        .simulation-content-item-income-value {
+          color: #00cc87;
+        }
+        .simulation-content-item-time {
+          background-color: #00cc87;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
