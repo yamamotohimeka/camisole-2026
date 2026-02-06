@@ -2,6 +2,8 @@
   <div class="concept__top">
     <div class="concept__bg rellax" data-rellax-speed="2" data-rellax-percentage="0.5">
       <img src="<?php echo $path; ?>assets/img/concept-deco2.png" alt="デコ">
+      <img src="<?php echo $path; ?>assets/img/concept-deco2-1200px.png" alt="デコ">
+
     </div>
     <div class="concept__deco rellax" data-rellax-speed="2" data-rellax-percentage="0.5">
       <img src="<?php echo $path; ?>assets/img/concept-deco.png" alt="デコ">

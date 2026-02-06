@@ -2,8 +2,16 @@
 .simulation {
   margin-top: 156px;
   position: relative;
+  @include pc{
+    margin-top: calc(156vw / (1200 / 100));
+  }
+
+
   &__title {
     top: 90px;
+    @include pc{
+      top: calc(90vw / (1200 / 100));
+    }
   }
 
   &__inner-title {
@@ -25,7 +33,15 @@
 
     margin: 0 auto;
     width: 800px;
-
+    @include pc{
+      width: calc(800vw / (1200 / 100));
+      padding: calc(12vw / (1200 / 100)) 0;
+      font-size: calc(29vw / (1200 / 100));
+      gap: calc(10vw / (1200 / 100));
+    }
+    @include tab {
+      width: calc(500vw / (768 / 100));
+    }
     &::before {
       content: "";
       display: block;
@@ -36,6 +52,12 @@
       left: 75px;
       top: 11px;
       transform: rotate(14deg);
+      @include pc{
+        width: calc(2vw / (1200 / 100));
+        height: calc(37vw / (1200 / 100));
+        left: calc(75vw / (1200 / 100));
+        top: calc(11vw / (1200 / 100));
+      }
     }
   }
 
@@ -45,6 +67,14 @@
     gap: 40px;
     margin-top: 40px;
     width: 1081px;
+    @include pc{
+      width: calc(1081vw / (1200 / 100));
+      gap: calc(40vw / (1200 / 100));
+      margin-top: calc(40vw / (1200 / 100));
+    }
+    @include tab {
+      width: calc(540vw / (768 / 100));
+    }
 
     &-item {
       display: flex;
@@ -55,6 +85,12 @@
 
       padding: 53px 65px;
       gap: 40px;
+      @include pc{
+        border-radius: calc(20vw / (1200 / 100));
+        padding: calc(53vw / (1200 / 100)) calc(60vw / (1200 / 100));
+        gap: calc(40vw / (1200 / 100));
+
+      }
 
       // 1番目: 青い背景
       &:nth-child(1) {
@@ -76,6 +112,9 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        @include pc{
+          gap: calc(20vw / (1200 / 100));
+        }
       }
 
       &-title {
@@ -83,12 +122,18 @@
         font-weight: bold;
         letter-spacing: 0.12rem;
         text-align: center;
+        @include pc{
+          font-size: calc(32vw / (1200 / 100));
+        }
       }
 
       &-info {
         display: flex;
         flex-direction: column;
         gap: 28px;
+        @include pc{
+          gap: calc(28vw / (1200 / 100));
+        }
       }
 
       &-name-time {
@@ -96,11 +141,18 @@
         align-items: center;
         justify-content: flex-start;
         gap: 6px;
+        @include pc{
+          gap: calc(6vw / (1200 / 100));
+        }
       }
 
       &-name {
         padding-right: 23px;
         font-size: 22px;
+        @include pc{
+          padding-right: calc(23vw / (1200 / 100));
+          font-size: calc(22vw / (1200 / 100));
+        }
       }
 
       &-time {
@@ -112,6 +164,10 @@
         display: inline-block;
         width: fit-content;
         margin: 0;
+        @include pc{
+          font-size: calc(20vw / (1200 / 100));
+          padding: calc(3vw / (1200 / 100)) calc(30vw / (1200 / 100));
+        }
       }
 
       &-course-list {
@@ -121,6 +177,9 @@
         flex-direction: column;
         gap: 12px;
         color: #000000;
+        @include pc{
+          gap: calc(12vw / (1200 / 100));
+        }
       }
 
       &-course {
@@ -129,15 +188,25 @@
         align-items: center;
         gap: 20px;
         font-family: initial;
+        @include pc{
+          gap: calc(20vw / (1200 / 100));
+        }
       }
 
       &-course-name {
         font-size: 19px;
+        @include pc{
+          font-size: calc(19vw / (1200 / 100));
+        }
       }
 
       &-course-price {
         padding-right: 57px;
         font-size: 19px;
+        @include pc{
+          font-size: calc(19vw / (1200 / 100));
+          padding-right: calc(57vw / (1200 / 100));
+        }
       }
 
       &-right {
@@ -153,8 +222,10 @@
         grid-template-columns: 1fr auto;
         column-gap: 16px;
         align-items: baseline;
-        // margin: 0 0 20px 0;
         width: 100%;
+        @include pc{
+          column-gap: calc(16vw / (1200 / 100));
+        }
       }
 
       &-income-label {
@@ -163,8 +234,20 @@
         opacity: 0.9;
         text-align: left;
         justify-self: start;
+        @include pc{
+          font-size: calc(54vw / (1200 / 100));
+        }
+        @include tab {
+          font-size: calc(54vw / (768 / 100));
+        }
         span {
           font-size: 42px;
+          @include pc{
+            font-size: calc(42vw / (1200 / 100));
+          }
+          @include tab {
+            font-size: calc(42vw / (768 / 100));
+          }
         }
       }
 
@@ -175,8 +258,17 @@
         margin: 0;
         text-align: right;
         justify-self: end;
+        @include pc{
+          font-size: calc(54vw / (1200 / 100));
+        }
+        @include tab {
+          font-size: calc(54vw / (768 / 100));
+        }
         span {
           font-size: 41px;
+          @include tab {
+            font-size: calc(41vw / (768 / 100));
+          }
         }
       }
 
@@ -185,6 +277,9 @@
         font-weight: bold;
         text-align: right;
         letter-spacing: 0.3rem;
+        @include pc{
+          font-size: calc(28vw / (1200 / 100));
+        }
       }
 
       &-right-days {
@@ -193,6 +288,10 @@
         text-align: right;
         letter-spacing: 0.3rem;
         padding-top: 35px;
+        @include pc{
+          font-size: calc(28vw / (1200 / 100));
+          padding-top: calc(35vw / (1200 / 100));
+        }
       }
 
       // 各ブロックのテキストカラー調整

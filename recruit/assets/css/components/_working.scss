@@ -1,6 +1,9 @@
 @use "../mixin" as *;
 .working {
   padding-top: 350px;
+  @include pc{
+    padding-top: calc(350vw / (1200 / 100));
+  }
   &__top {
     width: 100%;
     height: 1538px;
@@ -9,13 +12,34 @@
     background-repeat: no-repeat;
     background-image: url(../img/working-bg.png);
     position: relative;
+    @include pc{
+      height: calc(1538vw / (1200 / 100));
+    }
   }
   &__bg {
     position: absolute;
     top: 169px;
     width: 100%;
+    @include pc{
+      top: calc(80vw / (1200 / 100));
+      background-color: #fff;
+      padding: calc(120vw / (1200 / 100)) 0;
+    }
     img {
       width: 100%;
+      &:first-child {
+        @include pc{
+          display: none;
+        }
+      }
+      &:last-child {
+        display: none;
+        @include pc{
+          display: block;
+          width: calc(500vw / (1200 / 100));
+  
+        }
+      }
     }
   }
   &__deco {
@@ -23,12 +47,25 @@
     bottom: 427px;
     left: 918px;
     width: 404px;
+    @include pc{
+      width: calc(250vw / (1200 / 100));
+      left: calc(264vw / (1200 / 100));
+      bottom: calc(625vw / (1200 / 100));
+    }
+    @include tab {
+      width: calc(404vw / (768 / 100));
+      left: calc(918vw / (768 / 100));
+    }
   }
   &__logo {
-    width: 100%;
+    width:164px;
     height: 100%;
-    text-align: center;
+  margin: 0 auto;
     padding: 40px 0;
+    @include pc{
+      width: calc(164vw / (1200 / 100));
+      padding: calc(40vw / (1200 / 100)) 0;
+    }
   }
 
   &__inner {
@@ -45,9 +82,16 @@
     gap: 50px;
     padding: 120px 0 0 299px;
     letter-spacing: 0.18rem;
+    @include pc{
+      gap: calc(50vw / (1200 / 100));
+      padding: calc(120vw / (1200 / 100)) 0 0 calc(299vw / (1200 / 100));
+    }
 
     &-title {
       font-size: 36px;
+      @include pc{
+        font-size: calc(28vw / (1200 / 100));
+      }
       color: #000000;
       text-align: center;
 
@@ -76,9 +120,17 @@
 
       color: #000000;
       text-align: center;
+      @include pc{
+        font-size: calc(15vw / (1200 / 100));
+        gap: calc(7vw / (1200 / 100));
+        padding-top: calc(11vw / (1200 / 100));
+      }
     }
     &-text:first-child {
       font-size: 19px;
+      @include pc{
+        font-size: calc(19vw / (1200 / 100));
+      }
     }
   }
 
@@ -88,19 +140,27 @@
     align-items: center;
     gap: 47px;
     margin-top: 116px;
+    @include pc{
+      gap: calc(47vw / (1200 / 100));
+      margin-top: calc(80vw / (1200 / 100));
+    }
   }
   &__bottom-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 13px;
+    @include pc{
+      gap: calc(13vw / (1200 / 100));
+    }
   }
   &__bottom-img {
     width: 100%;
-    height: 100%;
     img {
-      width: 100%;
-      height: 100%;
+      width: 280px;
+      @include pc{
+        width: calc(280vw / (1200 / 100));
+      }
     }
   }
   &__bottom-text {
@@ -108,5 +168,8 @@
     line-height: 1.5;
     text-align: center;
     font-family: initial;
+    @include pc{
+      font-size: calc(15vw / (1200 / 100));
+    }
   }
 }

@@ -2,6 +2,7 @@
   <div class="working__top" data-rellax-speed="-8" data-rellax-percentage="0.5">
     <div class="working__bg rellax" data-rellax-speed="2" data-rellax-percentage="0.5">
       <img src="<?php echo $path; ?>assets/img/working-deco2.png" alt="デコ">
+      <img src="<?php echo $path; ?>assets/img/working-deco2-sp.png" alt="デコ">
     </div>
     <div class="working__deco rellax" data-rellax-speed="2" data-rellax-percentage="0.5">
       <img src="<?php echo $path; ?>assets/img/working-deco.png" alt="デコ">

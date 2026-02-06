@@ -12,27 +12,49 @@
     align-items: center;
     gap: 40px;
     padding: 20px 0;
+    @include pc{
+      gap: calc(40vw / (1200 / 100));
+      padding: calc(20vw / (1200 / 100)) 0;
+    }
   }
   &__logo {
     width: 162px;
+    @include pc{
+      width: calc(150vw / (1200 / 100));
+    }
+    @include tab {
+      width: calc(162vw / (768 / 100));
+    }
     img {
       width: 100%;
     }
   }
   &__nav {
     width: 1200px;
+    @include pc{
+      width: calc(1000vw / (1200 / 100));
+    }
+    @include tab {
+      width: calc(1200vw / (768 / 100));
+    }
     &-list {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       max-width: 1200px;
       width: 100%;
+      @include tab {
+        max-width: calc(1200vw / (768 / 100));
+      }
     }
 
     &-link {
       font-size: 15px;
       font-weight: bold;
       color: #fff;
+      @include pc{
+        font-size: calc(17vw / (1200 / 100));
+      }
     }
   }
   &__copyright {
@@ -41,5 +63,9 @@
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    @include pc{
+      font-size: calc(12vw / (1200 / 100));
+      padding: calc(20vw / (1200 / 100)) 0;
+    }
   }
 }

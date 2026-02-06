@@ -3,9 +3,15 @@
   margin-top: -180px; // faq との間隔を詰める
   padding-bottom: 80px; // フッターとの余白を確保（被らないように）
   position: relative;
-
+  @include pc{
+    margin-top: calc(-180vw / (1200 / 100));
+    padding-bottom: calc(80vw / (1200 / 100));
+  }
   &__title {
     top: 90px;
+    @include pc{
+      top: calc(90vw / (1200 / 100));
+    }
   }
 
   &__inner-title {
@@ -27,7 +33,12 @@
 
     margin: 0 auto;
     width: 800px;
-
+    @include pc{
+      width: calc(800vw / (1200 / 100));
+      padding: calc(12vw / (1200 / 100)) 0;
+      font-size: calc(29vw / (1200 / 100));
+      gap: calc(10vw / (1200 / 100));
+    }
     &::before {
       content: "";
       display: block;
@@ -38,6 +49,12 @@
       left: 75px;
       top: 11px;
       transform: rotate(14deg);
+      @include pc{
+        width: calc(2vw / (1200 / 100));
+        height: calc(37vw / (1200 / 100));
+        left: calc(75vw / (1200 / 100));
+        top: calc(11vw / (1200 / 100));
+      }
     }
 
     &-content {
@@ -48,6 +65,9 @@
       text-align: center;
       letter-spacing: 0.09rem;
       font-family: "FOT-ハミング Std", sans-serif;
+      @include pc{
+        font-size: calc(25vw / (1200 / 100));
+      }
     }
   }
   &__inner-content {
@@ -59,6 +79,10 @@
     letter-spacing: 0;
     font-family: initial;
     font-weight: bold;
+    @include pc{
+      font-size: calc(17vw / (1200 / 100));
+      margin-top: calc(58vw / (1200 / 100));
+    }
     span {
       color: #ce0000;
     }
@@ -67,6 +91,10 @@
       flex-direction: column;
       gap: 40px;
       margin-top: 19px;
+      @include pc{
+        gap: calc(40vw / (1200 / 100));
+        margin-top: calc(19vw / (1200 / 100));
+      }
     }
     &-item {
       margin-top: 23px;
@@ -84,11 +112,20 @@
       width: 400px;
       height: 82px;
       margin: 0 auto;
+      @include pc{
+        font-size: calc(23vw / (1200 / 100));
+        width: calc(400vw / (1200 / 100));
+        height: calc(82vw / (1200 / 100));
+        margin: 0 auto;
+      }
       a {
         display: block;
       }
       span {
         font-size: 18px;
+        @include pc{
+          font-size: calc(18vw / (1200 / 100));
+        }
       }
     }
   }
@@ -96,6 +133,10 @@
   &__contact {
     margin: 81px auto 0;
     width: 800px;
+    @include pc{
+      width: calc(800vw / (1200 / 100));
+      margin: calc(81vw / (1200 / 100)) auto 0;
+    }
     &-title {
       padding-top: 27px;
       font-size: 23px;
@@ -109,6 +150,13 @@
       width: 400px;
       height: 82px;
       margin: 0 auto;
+      @include pc{
+        font-size: calc(23vw / (1200 / 100));
+        width: calc(400vw / (1200 / 100));
+        height: calc(82vw / (1200 / 100));
+        margin: 0 auto;
+        padding-top: calc(27vw / (1200 / 100));
+      }
     }
   }
 }

@@ -5,37 +5,57 @@
   width: 100%;
   position: relative;
   height: 150px;
+
   &__inner {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px 0;
+    padding: 20px 20px 20px 0;
   }
 
   &__title {
     width: 700px;
+    @include pc{
+      width: calc(370vw / (1200 / 100));
+    }
     img {
       width: 238px;
       padding-left: 74px;
+      @include pc{
+        width: calc(238vw / (1200 / 100));
+        padding-left: calc(24vw / (1200 / 100));
+      }
+      @include tab {
+        padding-left: 0;
+      }
     }
   }
 
   &__nav {
     width: 1200px;
     padding-top: 10px;
-
+    @include pc{
+      width: calc(1200vw / (1200 / 100));
+    }
+  @include tab {
+    display: none;
+  }
     &-list {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       max-width: 1200px;
       width: 100%;
+  
     }
 
     &-link {
       font-size: 15px;
       font-weight: bold;
       color: $base;
+      @include pc{
+        font-size: calc(17vw / (1200 / 100));
+      }
     }
   }
 

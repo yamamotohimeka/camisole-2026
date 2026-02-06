@@ -2,8 +2,14 @@
 .faq {
   margin-top: 68px;
   position: relative;
+  @include pc{
+    margin-top: calc(68vw / (1200 / 100));
+  }
   &__title {
     top: 90px;
+    @include pc{
+      top: calc(90vw / (1200 / 100));
+    }
   }
 
   &__inner-title {
@@ -25,6 +31,15 @@
 
     margin: 0 auto;
     width: 800px;
+    @include pc{
+      width: calc(800vw / (1200 / 100));
+      padding: calc(12vw / (1200 / 100)) 0;
+      font-size: calc(29vw / (1200 / 100));
+      gap: calc(10vw / (1200 / 100));
+    }
+    @include tab {
+      width: calc(800vw / (768 / 100));
+    }
 
     &::before {
       content: "";
@@ -36,6 +51,12 @@
       left: 75px;
       top: 11px;
       transform: rotate(14deg);
+      @include pc{
+        width: calc(2vw / (1200 / 100));
+        height: calc(37vw / (1200 / 100));
+        left: calc(75vw / (1200 / 100));
+        top: calc(11vw / (1200 / 100));
+      }
     }
   }
 
@@ -46,7 +67,11 @@
     width: 800px;
     margin: 70px auto 0;
     font-family: initial;
-
+    @include pc{
+      width: calc(800vw / (1200 / 100));
+      gap: calc(40vw / (1200 / 100));
+      margin: calc(70vw / (1200 / 100)) auto 0;
+    }
     &-item {
       display: flex;
       flex-direction: column;
@@ -67,7 +92,12 @@
         color: #ffffff;
         border: none;
         cursor: pointer;
-
+        @include pc{
+          font-size: calc(25vw / (1200 / 100));
+          gap: calc(20vw / (1200 / 100));
+          padding: calc(18vw / (1200 / 100)) calc(20vw / (1200 / 100)) calc(18vw / (1200 / 100)) calc(80vw / (1200 / 100));
+          border-radius: calc(40vw / (1200 / 100));
+        }
         &::before {
           content: "Q";
           display: inline-block;
@@ -75,6 +105,10 @@
           font-weight: bold;
           position: absolute;
           left: 31px;
+          @include pc{
+            font-size: calc(35vw / (1200 / 100));
+            left: calc(31vw / (1200 / 100));
+          }
         }
 
         &-text {
@@ -98,7 +132,11 @@
           top: 50%;
           transform: translateY(-50%);
           flex-shrink: 0;
-
+          @include pc{
+            width: calc(32vw / (1200 / 100));
+            height: calc(32vw / (1200 / 100));
+            right: calc(20vw / (1200 / 100));
+          }
           // Font Awesomeの疑似要素にpositionを指定
           &::before {
             position: absolute;
@@ -154,6 +192,12 @@
         line-height: 1.36;
         width: calc(100% - 40px);
         margin: 0 auto;
+        @include pc{
+          font-size: calc(17vw / (1200 / 100));
+          gap: calc(42vw / (1200 / 100));
+          width: calc(100% - 40vw / (1200 / 100));
+          margin: 0 auto;
+        }
 
         &::before {
           content: "A";
@@ -162,6 +206,9 @@
           font-weight: bold;
           color: #ffb100;
           flex-shrink: 0;
+          @include pc{
+            font-size: calc(44vw / (1200 / 100));
+          }
         }
 
         // 開いている状態
@@ -169,6 +216,9 @@
           max-height: 1000px;
           padding: 15px 20px 25px 63px;
           opacity: 1;
+          @include pc{
+            padding: calc(15vw / (1200 / 100)) calc(20vw / (1200 / 100)) calc(25vw / (1200 / 100)) calc(63vw / (1200 / 100));
+          }
         }
       }
     }

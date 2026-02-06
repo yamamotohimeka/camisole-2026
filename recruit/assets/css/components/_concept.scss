@@ -8,13 +8,34 @@
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
+    @include pc{
+      height: calc(800vh / (1200 / 100));
+    }
+
   }
   &__bg {
     position: absolute;
     top: 169px;
     width: 100%;
+    @include pc{
+      top: calc(169vw / (1200 / 100));
+     }
     img {
       width: 100%;
+      &:first-child {
+        @include pc{
+          display: none;
+        }
+      }
+      &:last-child {
+        display: none;
+        @include pc{
+          display: block;
+          width: calc(1200vw / (1200 / 100));
+          height: auto
+        }
+      }
+   
     }
   }
 
@@ -23,6 +44,15 @@
     bottom: 72px;
     left: 371px;
     width: 521px;
+    @include pc{
+      bottom: calc(48vw / (1200 / 100));
+      left: calc(174vw / (1200 / 100));
+      width: calc(321vw / (1200 / 100));
+    }
+    @include tab {
+      width: calc(521vw / (768 / 100));
+      left: calc(371vw / (768 / 100));
+    }
   }
 
   &__inner {
@@ -30,14 +60,21 @@
   }
 
   &__logo {
-    width: 100%;
+    width: 164px;
     height: 100%;
-    text-align: center;
+    margin: 0 auto;
     padding: 40px 0;
+      @include pc{
+      width: calc(164vw / (1200 / 100));
+      padding: calc(40vw / (1200 / 100)) 0;
+    }
   }
 
   &__title {
     top: 260px;
+    @include pc{
+      top: calc(260vw / (1200 / 100));
+    }
   }
   &__content {
     display: flex;
@@ -46,12 +83,18 @@
     align-items: center;
     gap: 80px;
     padding: 110px 0;
-
+    @include pc{
+      gap: calc(80vw / (1200 / 100));
+      padding: calc(60vw / (1200 / 100)) 0;
+      margin-left: calc(290vw / (1200 / 100));
+    }
     &-title {
       font-size: 28px;
       color: $navy;
       text-align: center;
-
+      @include pc{
+        font-size: calc(20vw / (1200 / 100));
+      }
       &::after {
         content: "";
         display: block;
@@ -61,12 +104,25 @@
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
+        @include pc{
+          height: calc(7vw / (1200 / 100));
+          background-size: calc(333vw / (1200 / 100)) 100%;
+        }
+        @include tab {
+        background-size: cover;
+        }
       }
     }
     & > :first-child &-title {
       font-size: 38px;
+      @include pc{
+        font-size: calc(28vw / (1200 / 100));
+      }
       &::after {
         height: 10px;
+        @include pc{
+          height: calc(10vw / (1200 / 100));
+        }
       }
     }
 
@@ -85,14 +141,25 @@
       text-align: center;
 
       font-family: "小塚ゴシック Pr6N", sans-serif;
+      @include pc{
+        font-size: calc(19vw / (1200 / 100));
+        gap: calc(7vw / (1200 / 100));
+        padding-top: calc(11vw / (1200 / 100));
+      }
     }
     &-text:first-child {
       font-size: 19px;
+      @include pc{
+        font-size: calc(19vw / (1200 / 100));
+      }
     }
   }
 
   &__login {
     margin-top: 145px;
+    @include pc{
+      margin-top: calc(145vw / (1200 / 100));
+    }
     &-title {
       padding: 12px 0;
       display: flex;
@@ -112,7 +179,12 @@
 
       margin: 0 auto;
       width: 800px;
-
+      @include pc{
+        padding: calc(12vw / (1200 / 100)) 0;
+        width: calc(800vw / (1200 / 100));
+        gap: calc(10vw / (1200 / 100));
+        font-size: calc(29vw / (1200 / 100));
+      }
       &::before {
         content: "";
         display: block;
@@ -123,6 +195,12 @@
         left: 75px;
         top: 11px;
         transform: rotate(14deg);
+        @include pc{
+          width: calc(2vw / (1200 / 100));
+          height: calc(37vw / (1200 / 100));
+          left: calc(75vw / (1200 / 100));
+          top: calc(11vw / (1200 / 100));
+        }
       }
     }
     &-text {
@@ -132,13 +210,20 @@
       font-family: "FOT-ハミング Std", sans-serif;
       line-height: 1.8;
       padding: 25px 5px 0;
-
+      @include pc{
+        font-size: calc(19vw / (1200 / 100));
+        padding: calc(25vw / (1200 / 100)) 5px 0;
+      }
       span {
         color: #ff2e87;
         font-size: 29px;
         position: relative;
         padding: 0 5px;
         letter-spacing: 0.1rem;
+        @include pc{
+          font-size: calc(29vw / (1200 / 100));
+          padding: calc(0vw / (1200 / 100)) 5px;
+        }
         &::after {
           content: "";
           display: block;
@@ -151,11 +236,19 @@
           position: absolute;
           left: 0;
           bottom: -7px;
+          @include pc{
+            background-size: calc(279vw / (1200 / 100)) 100%;
+            height: calc(7vw / (1200 / 100));
+            bottom: calc(-7vw / (1200 / 100));
+          }
         }
       }
     }
     &-img {
       padding-top: 52px;
+      @include pc{
+        padding-top: calc(52vw / (1200 / 100));
+      }
     }
   }
 }

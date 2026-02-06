@@ -1,6 +1,9 @@
 @use "../mixin" as *;
 .salary {
   padding-top: 242px;
+  @include pc{
+    padding-top: calc(242vw / (1200 / 100));
+  }
   &__inner {
     position: relative;
   }
@@ -8,7 +11,9 @@
     display: flex;
     flex-direction: column;
     gap: 70px;
-
+    @include pc{
+      gap: calc(70vw / (1200 / 100));
+    }
     &-item {
       display: flex;
       flex-direction: column;
@@ -21,7 +26,13 @@
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat;
-
+      @include pc{
+        width: calc(1123vw / (1200 / 100));
+        height: calc(476vw / (1200 / 100));
+      }
+      @include tab {
+        width: calc(1123vw / (768 / 100));
+      }
       &-inner {
         position: absolute;
         top: 12px;
@@ -29,13 +40,23 @@
 
         display: flex;
         flex-direction: column;
+        @include pc{
+          top: calc(12vw / (1200 / 100));
+          left: calc(15vw / (1200 / 100));
+        }
 
         h3 {
           font-size: 49px;
           font-family: "あかずきん", sans-serif;
           font-weight: bold;
+          @include pc{
+            font-size: calc(49vw / (1200 / 100));
+          }
           span {
             font-size: 34px;
+            @include pc{
+              font-size: calc(34vw / (1200 / 100));
+            }
           }
         }
       }
@@ -64,6 +85,11 @@
           padding-left: 0;
           padding-right: 62px;
           padding-top: 44px;
+          @include pc{
+            padding-left: calc(0vw / (1200 / 100));
+            padding-right: calc(62vw / (1200 / 100));
+            padding-top: calc(44vw / (1200 / 100));
+          }
         }
         .salary__content-title {
           color: #ff7687;
@@ -73,6 +99,9 @@
           &-list {
             padding-left: 0;
             padding-right: 96px;
+            @include pc{
+              padding-right: calc(96vw / (1200 / 100));
+            }
           }
         }
         .salary__content-item-inner {
@@ -104,6 +133,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      @include pc{
+        padding-top: calc(47vw / (1200 / 100));
+        padding-left: calc(62vw / (1200 / 100));
+      }
     }
 
     &-title {
@@ -111,6 +144,9 @@
       font-weight: bold;
       font-family: "FOT-ハミング Std", sans-serif;
       text-align: center;
+      @include pc{
+        font-size: calc(33vw / (1200 / 100));
+      }
     }
 
     &-text {
@@ -118,6 +154,10 @@
       font-size: 16px;
       color: #000000;
       text-align: center;
+      @include pc{
+        font-size: calc(16vw / (1200 / 100));
+        padding-top: calc(20vw / (1200 / 100));
+      }
     }
 
     &-price {
@@ -127,15 +167,25 @@
         gap: 11px;
         padding-top: 47px;
         padding-left: 62px;
+        @include pc{
+          padding-top: calc(47vw / (1200 / 100));
+          padding-left: calc(62vw / (1200 / 100));
+        }
       }
 
       font-size: 49px;
       color: #000000;
       text-align: center;
       font-family: "FOT-ハミング Std", sans-serif;
+      @include pc{
+        font-size: calc(49vw / (1200 / 100));
+      }
       span {
         font-size: 32px;
         font-weight: bold;
+        @include pc{
+          font-size: calc(32vw / (1200 / 100));
+        }
       }
     }
   }
@@ -145,9 +195,17 @@
   &__banner {
     padding-top: 235px;
     text-align: center;
-
+    @include pc{
+      padding-top: calc(235vw / (1200 / 100));
+    }
     img {
       width: 1061px;
+      @include pc{
+        width: calc(1061vw / (1200 / 100));
+      }
+      @include tab {
+        width: calc(1061vw / (768 / 100));
+      }
     }
   }
 }
