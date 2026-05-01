@@ -1,62 +1,207 @@
 @use "../mixin" as *;
 .concept {
+  // 狭い幅で Rellax / 子要素のはみ出しによる横スクロールを防ぐ
+  @include tab {
+    overflow-x: clip;
+  }
+
   &__top {
     width: 100%;
-    height: 100vh;
+    // 本文の量に合わせて伸びる（固定 height だと bg より下に文字がはみ出す）
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
     background-image: url(../img/concept-bg.png);
-    background-size: 100% 100vh;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
-    @include pc{
-      height: calc(800vh / (1200 / 100));
+    isolation: isolate;
+    overflow-x: clip;
+    overflow-y: visible;
+    // PC: white middle band (::before); top/bottom stay concept-bg
+    @media (min-width: ($tab + 1px)) {
+      min-height: 1156px;
+      display: flow-root;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      overflow-y: clip;
+      background-image: url(../img/concept-bg.png);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 170px;
+        @include pc {
+          top: calc(169vw / (1200 / 100));
+        }
+        bottom: 150px;
+        background-color: #ffffff;
+        z-index: 0;
+        pointer-events: none;
+      }
     }
-
+    @include pc {
+      height: auto;
+    }
+    @include tab {
+      background-image: unset;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      min-height: 100dvh;
+      min-height: 100vh;
+      margin-top: 0;
+      overflow-x: clip;
+    }
   }
   &__bg {
     position: absolute;
     top: 169px;
+    bottom: 0;
     width: 100%;
-    @include pc{
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    // タブレット以下：写真下の余白を白で埋め（合成画像用）
+    background-color: #ffffff;
+    // PC: white band is __top::before; girl stacks above
+    @media (min-width: ($tab + 1px)) {
+      width: min(46vw, 720px);
+      max-width: 50%;
+      right: auto;
+      z-index: 1;
+      background: transparent;
+    }
+    @include pc {
       top: calc(169vw / (1200 / 100));
-     }
-    img {
+    }
+    @include tab {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       width: 100%;
-      &:first-child {
-        @include pc{
-          display: none;
+      max-width: 100%;
+      min-height: 0;
+    }
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: contain;
+      object-position: top center;
+      // PC：女性（2枚目）以外に適用（nth-child(2) のみ別指定）
+      @media (min-width: ($tab + 1px)) {
+        &:not(:nth-child(1)) {
+          width: auto;
+          max-width: 100%;
+          height: 100%;
+          max-height: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          object-fit: contain;
+          object-position: center bottom;
+        }
+      }
+
+      &:nth-child(1) {
+        display: none;
+        @media (min-width: ($tab + 1px)) {
+          display: block;
+          flex: 0 1 auto;
+          align-self: flex-end;
+          width: auto;
+          max-width: min(540px, 44vw);
+          height: auto;
+          max-height: 100%;
+          min-height: 0;
+          margin: 0;
+          object-fit: contain;
+          object-position: bottom left;
+          filter: drop-shadow(0 10px 28px rgba(30, 100, 140, 0.14));
         }
       }
       &:last-child {
         display: none;
-        @include pc{
+        @include tab {
           display: block;
-          width: calc(1200vw / (1200 / 100));
-          height: auto
+          width: 100%;
+          height: 100%;
+          min-height: 50dvh;
+          max-height: none;
+          object-position: center top;
         }
       }
-   
     }
   }
 
   &__deco {
     position: absolute;
-    bottom: 72px;
-    left: 371px;
+    bottom: 2%;
+    left: 13%;
     width: 521px;
-    @include pc{
+    max-width: min(521px, 88vw);
+    z-index: 2;
+    pointer-events: none;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @include pc {
       bottom: calc(48vw / (1200 / 100));
       left: calc(174vw / (1200 / 100));
       width: calc(321vw / (1200 / 100));
+      max-width: min(321px, 42vw);
     }
     @include tab {
-      width: calc(521vw / (768 / 100));
-      left: calc(371vw / (768 / 100));
+      bottom: 29%;
+      top: auto;
+      left: 0;
+      right: auto;
+      width: min(90vw, calc(521vw / (768 / 100)));
+      max-width: 90vw;
+    }
+    @include sp {
+      bottom: 32%;
+    }
+    // 769px～1280px（include pc 帯）：デコを抑えて本文と干渉しにくく
+    @media (min-width: ($tab + 1px)) and (max-width: ($pc)) {
+      width: min(260px, 34vw);
+      max-width: 34vw;
+      left: 2%;
+      bottom: 5%;
+    }
+    // 中間幅：デコを小さく・左寄せにして本文と被りを軽減（ワイドPC）
+    @media (max-width: 1700px) and (min-width: ($pc + 1px)) {
+      width: min(380px, 32vw);
+      left: 2%;
+      bottom: 5%;
+    }
+    @media (max-width: 1400px) and (min-width: ($pc + 1px)) {
+      width: min(300px, 28vw);
+      left: 1%;
+      bottom: 6%;
+      opacity: 0.92;
     }
   }
 
   &__inner {
     position: relative;
+    z-index: 3;
+    @media (min-width: ($tab + 1px)) {
+      padding-bottom: 0;
+    }
   }
 
   &__logo {
@@ -64,16 +209,32 @@
     height: 100%;
     margin: 0 auto;
     padding: 40px 0;
-      @include pc{
+    @media (min-width: ($tab + 1px)) {
+      height: auto;
+    }
+    @include pc {
       width: calc(164vw / (1200 / 100));
       padding: calc(40vw / (1200 / 100)) 0;
+    }
+    @include tab {
+      width: calc(300vw / (768 / 100));
+      padding: 0;
+      position: absolute;
+      top: calc(81vw / (768 / 100));
+      right: calc(107vw / (768 / 100));
+      img {
+        width: 100%;
+      }
     }
   }
 
   &__title {
     top: 260px;
-    @include pc{
+    @include pc {
       top: calc(260vw / (1200 / 100));
+    }
+    @include tab {
+      top: calc(-90vw / (768 / 100));
     }
   }
   &__content {
@@ -83,17 +244,79 @@
     align-items: center;
     gap: 80px;
     padding: 110px 0;
-    @include pc{
-      gap: calc(80vw / (1200 / 100));
-      padding: calc(60vw / (1200 / 100)) 0;
-      margin-left: calc(290vw / (1200 / 100));
+    // 769px以上のPC帯：左ビジュアル＋右テキスト列（1280超と同じ思想。include pc 帯で崩れないよう統一）
+    @media (min-width: ($tab + 1px)) {
+      justify-content: flex-start;
+      box-sizing: border-box;
+      width: 100%;
+      margin-left: 0;
+      gap: clamp(40px, 5vw, 80px);
+      padding-top: clamp(48px, 8vw, 110px);
+      padding-bottom: 0;
+      &-item {
+        width: 100%;
+      }
+      &-title,
+      &-text {
+        text-align: center;
+      }
+    }
+
+    @include tab {
+      gap: calc(60vw / (768 / 100));
+      padding: calc(280vw / (768 / 100)) 0 0;
+      margin-left: 0;
+      padding-left: 0;
+      padding-right: calc(16vw / (768 / 100));
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+      &-item:first-child {
+        min-height: 90dvh;
+        padding-left: calc(210vw / (768 / 100));
+        padding-right: 0;
+      }
+    }
+
+    @include sp {
+      padding: calc(190vw / (440 / 100)) 0 calc(50vw / (768 / 100));
+      &-item:first-child {
+        min-height: 70dvh;
+        padding-left: calc(130vw / (440 / 100));
+        padding-right: 0;
+      }
+    }
+    // タブレット：1番目はタイトル87px・テキスト41px、2番目以降はタイトル60px・テキスト38px
+    @include tab {
+      &-item:first-child &-text,
+      &-item:first-child &-text p {
+        font-size: calc(41vw / (1180 / 100));
+        line-height: 1.5;
+        font-weight: bold;
+        padding-top: calc(14vw / (1180 / 100));
+      }
+      &-item:not(:first-child) &-title {
+        font-size: calc(60vw / (1180 / 100));
+      }
+      &-item:not(:first-child) &-text,
+      &-item:not(:first-child) &-text p {
+        font-size: calc(35vw / (1180 / 100));
+        line-height: 1.3;
+      }
     }
     &-title {
       font-size: 28px;
       color: $navy;
       text-align: center;
-      @include pc{
+      @media (min-width: ($tab + 1px)) {
+        text-align: center;
+      }
+      @include pc {
         font-size: calc(20vw / (1200 / 100));
+      }
+      @include tab {
+        text-align: center;
+        font-size: calc(28vw / (768 / 100));
       }
       &::after {
         content: "";
@@ -104,23 +327,30 @@
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
-        @include pc{
+        @include pc {
           height: calc(7vw / (1200 / 100));
           background-size: calc(333vw / (1200 / 100)) 100%;
         }
         @include tab {
-        background-size: cover;
+          background-size: calc(695vw / (1180 / 100)) calc(15vw / (1180 / 100));
         }
       }
     }
     & > :first-child &-title {
       font-size: 38px;
-      @include pc{
+      @media (min-width: ($tab + 1px)) {
+        text-align: center;
+      }
+      @include pc {
         font-size: calc(28vw / (1200 / 100));
+      }
+      @include tab {
+        text-align: center;
+        font-size: calc(87vw / (1180 / 100));
       }
       &::after {
         height: 10px;
-        @include pc{
+        @include pc {
           height: calc(10vw / (1200 / 100));
         }
       }
@@ -141,24 +371,35 @@
       text-align: center;
 
       font-family: "小塚ゴシック Pr6N", sans-serif;
-      @include pc{
+      @include pc {
         font-size: calc(19vw / (1200 / 100));
         gap: calc(7vw / (1200 / 100));
         padding-top: calc(11vw / (1200 / 100));
       }
+      @include tab {
+        text-align: center;
+        align-items: stretch;
+        font-size: calc(18vw / (768 / 100));
+        gap: calc(7vw / (768 / 100));
+        padding-top: calc(11vw / (768 / 100));
+      }
     }
     &-text:first-child {
       font-size: 19px;
-      @include pc{
+      @include pc {
         font-size: calc(19vw / (1200 / 100));
       }
     }
   }
 
   &__login {
-    margin-top: 145px;
-    @include pc{
-      margin-top: calc(145vw / (1200 / 100));
+    @include tab {
+      margin-top: calc(100vw / (768 / 100));
+    }
+    // PC：margin-top は相殺で白い隙間に見えやすい → 0 にして内側 padding で区切る
+    @media (min-width: ($tab + 1px)) {
+      margin-top: 0;
+      padding-top: clamp(12px, 2vw, 40px);
     }
     &-title {
       padding: 12px 0;
@@ -179,11 +420,17 @@
 
       margin: 0 auto;
       width: 800px;
-      @include pc{
+      @include pc {
         padding: calc(12vw / (1200 / 100)) 0;
         width: calc(800vw / (1200 / 100));
         gap: calc(10vw / (1200 / 100));
         font-size: calc(29vw / (1200 / 100));
+      }
+      @include tab {
+        width: 100%;
+        font-size: calc(29vw / (768 / 100));
+        gap: calc(10vw / (768 / 100));
+        padding: calc(12vw / (768 / 100)) 0;
       }
       &::before {
         content: "";
@@ -195,11 +442,17 @@
         left: 75px;
         top: 11px;
         transform: rotate(14deg);
-        @include pc{
+        @include pc {
           width: calc(2vw / (1200 / 100));
           height: calc(37vw / (1200 / 100));
           left: calc(75vw / (1200 / 100));
           top: calc(11vw / (1200 / 100));
+        }
+        @include tab {
+          width: calc(2vw / (768 / 100));
+          height: calc(37vw / (768 / 100));
+          left: calc(75vw / (768 / 100));
+          top: calc(11vw / (768 / 100));
         }
       }
     }
@@ -210,9 +463,13 @@
       font-family: "FOT-ハミング Std", sans-serif;
       line-height: 1.8;
       padding: 25px 5px 0;
-      @include pc{
+      @include pc {
         font-size: calc(19vw / (1200 / 100));
         padding: calc(25vw / (1200 / 100)) 5px 0;
+      }
+      @include tab {
+        font-size: calc(19vw / (768 / 100));
+        padding: calc(25vw / (768 / 100)) 5px 0;
       }
       span {
         color: #ff2e87;
@@ -220,9 +477,13 @@
         position: relative;
         padding: 0 5px;
         letter-spacing: 0.1rem;
-        @include pc{
+        @include pc {
           font-size: calc(29vw / (1200 / 100));
           padding: calc(0vw / (1200 / 100)) 5px;
+        }
+        @include tab {
+          font-size: calc(29vw / (768 / 100));
+          padding: calc(0vw / (768 / 100)) 5px;
         }
         &::after {
           content: "";
@@ -236,18 +497,26 @@
           position: absolute;
           left: 0;
           bottom: -7px;
-          @include pc{
+          @include pc {
             background-size: calc(279vw / (1200 / 100)) 100%;
             height: calc(7vw / (1200 / 100));
             bottom: calc(-7vw / (1200 / 100));
+          }
+          @include tab {
+            background-size: calc(279vw / (768 / 100)) 100%;
+            height: calc(7vw / (768 / 100));
+            bottom: calc(-7vw / (768 / 100));
           }
         }
       }
     }
     &-img {
       padding-top: 52px;
-      @include pc{
+      @include pc {
         padding-top: calc(52vw / (1200 / 100));
+      }
+      @include tab {
+        padding-top: calc(52vw / (768 / 100));
       }
     }
   }

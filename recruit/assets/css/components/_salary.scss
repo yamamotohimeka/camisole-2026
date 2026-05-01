@@ -1,8 +1,14 @@
 @use "../mixin" as *;
 .salary {
   padding-top: 242px;
-  @include pc{
+  @include pc {
     padding-top: calc(242vw / (1200 / 100));
+  }
+  @include tab {
+    padding-top: calc(100vw / (768 / 100));
+  }
+  @include sp {
+    padding-top: 0;
   }
   &__inner {
     position: relative;
@@ -11,8 +17,19 @@
     display: flex;
     flex-direction: column;
     gap: 70px;
-    @include pc{
+    @include pc {
       gap: calc(70vw / (1200 / 100));
+    }
+    @include tab {
+      gap: calc(690vw / (768 / 100));
+      align-items: center;
+      padding-top: calc(100vw / (768 / 100));
+      // スクロール連動フェードを弱く見せる（index.js 側で移動量も縮小）
+      [data-fade] {
+        transition:
+          opacity 0.1s linear,
+          transform 0.1s linear;
+      }
     }
     &-item {
       display: flex;
@@ -26,12 +43,13 @@
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat;
-      @include pc{
+      @include pc {
         width: calc(1123vw / (1200 / 100));
         height: calc(476vw / (1200 / 100));
       }
       @include tab {
-        width: calc(1123vw / (768 / 100));
+        width: calc(1075vw / (1180 / 100));
+        height: calc(829vw / (1180 / 100));
       }
       &-inner {
         position: absolute;
@@ -40,22 +58,47 @@
 
         display: flex;
         flex-direction: column;
-        @include pc{
+        @include pc {
           top: calc(12vw / (1200 / 100));
           left: calc(15vw / (1200 / 100));
         }
-
+        @include tab {
+          top: calc(545vw / (768 / 100));
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          text-align: center;
+          &::before {
+            content: "";
+            display: block;
+            width: calc(1075vw / (1180 / 100));
+            height: calc(800vw / (1180 / 100));
+            background-color: #00b5ff;
+            opacity: 0.15;
+            position: absolute;
+            left: 0;
+            top: calc(100vw / (1180 / 100));
+            border-radius: calc(20vw / (1180 / 100));
+          }
+        }
         h3 {
           font-size: 49px;
           font-family: "あかずきん", sans-serif;
           font-weight: bold;
-          @include pc{
+          @include pc {
             font-size: calc(49vw / (1200 / 100));
+          }
+          @include tab {
+            font-size: calc(49vw / (768 / 100));
+            width: 100%;
           }
           span {
             font-size: 34px;
-            @include pc{
+            @include pc {
               font-size: calc(34vw / (1200 / 100));
+            }
+            @include tab {
+              font-size: calc(34vw / (768 / 100));
             }
           }
         }
@@ -63,7 +106,9 @@
       // 1番目のコース（オナクラコース）
       &:nth-child(1) {
         background-image: url(../img/salary1.png);
-
+        @include tab {
+          background-image: url(../img/salary1-sp.png);
+        }
         h3 {
           color: #00b1ff;
         }
@@ -78,6 +123,9 @@
       // 2番目のコース（手コキコース）
       &:nth-child(2) {
         background-image: url(../img/salary2.png);
+        @include tab {
+          background-image: url(../img/salary2-sp.png);
+        }
         h3 {
           color: #ff7687;
         }
@@ -85,10 +133,17 @@
           padding-left: 0;
           padding-right: 62px;
           padding-top: 44px;
-          @include pc{
+          @include pc {
             padding-left: calc(0vw / (1200 / 100));
             padding-right: calc(62vw / (1200 / 100));
             padding-top: calc(44vw / (1200 / 100));
+          }
+          @include tab {
+            width: 100%;
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: calc(47vw / (768 / 100));
           }
         }
         .salary__content-title {
@@ -99,8 +154,16 @@
           &-list {
             padding-left: 0;
             padding-right: 96px;
-            @include pc{
+            @include pc {
               padding-right: calc(96vw / (1200 / 100));
+            }
+            @include tab {
+              padding-right: 0;
+              width: 100%;
+              text-align: center;
+              padding-left: 0;
+              padding-right: 0;
+              padding-top: 0;
             }
           }
         }
@@ -108,12 +171,26 @@
           align-items: flex-end;
           left: 0;
           right: 0;
+          @include tab {
+            top: calc(545vw / (768 / 100));
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            &::before {
+              background-color: #d98b7f;
+              opacity: 0.15;
+            }
+          }
         }
       }
 
       // 3番目のコース（おあずけVIPコース）
       &:nth-child(3) {
         background-image: url(../img/salary3.png);
+        @include tab {
+          background-image: url(../img/salary3-sp.png);
+        }
         h3 {
           color: #00cc87;
         }
@@ -122,6 +199,14 @@
         }
         .salary__content-price {
           color: #00cc87;
+        }
+        .salary__content-item-inner {
+          @include tab {
+            &::before {
+              background-color: #00b500;
+              opacity: 0.15;
+            }
+          }
         }
       }
     }
@@ -133,9 +218,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      @include pc{
+      @include pc {
         padding-top: calc(47vw / (1200 / 100));
         padding-left: calc(62vw / (1200 / 100));
+      }
+      @include tab {
+        flex-direction: column-reverse;
+        padding-top: calc(47vw / (768 / 100));
+        padding-left: 0;
+        gap: calc(40vw / (768 / 100));
       }
     }
 
@@ -144,8 +235,11 @@
       font-weight: bold;
       font-family: "FOT-ハミング Std", sans-serif;
       text-align: center;
-      @include pc{
+      @include pc {
         font-size: calc(33vw / (1200 / 100));
+      }
+      @include tab {
+        font-size: calc(58vw / (1180 / 100));
       }
     }
 
@@ -154,9 +248,14 @@
       font-size: 16px;
       color: #000000;
       text-align: center;
-      @include pc{
+      z-index: 1;
+      @include pc {
         font-size: calc(16vw / (1200 / 100));
         padding-top: calc(20vw / (1200 / 100));
+      }
+      @include tab {
+        font-size: calc(40vw / (1180 / 100));
+        padding-top: calc(20vw / (768 / 100));
       }
     }
 
@@ -167,9 +266,13 @@
         gap: 11px;
         padding-top: 47px;
         padding-left: 62px;
-        @include pc{
+        @include pc {
           padding-top: calc(47vw / (1200 / 100));
           padding-left: calc(62vw / (1200 / 100));
+        }
+        @include tab {
+          padding-top: calc(10vw / (768 / 100));
+          padding-left: calc(62vw / (768 / 100));
         }
       }
 
@@ -177,34 +280,41 @@
       color: #000000;
       text-align: center;
       font-family: "FOT-ハミング Std", sans-serif;
-      @include pc{
+      @include pc {
         font-size: calc(49vw / (1200 / 100));
+      }
+      @include tab {
+        font-size: calc(98vw / (1180 / 100));
       }
       span {
         font-size: 32px;
         font-weight: bold;
-        @include pc{
+        @include pc {
           font-size: calc(32vw / (1200 / 100));
+        }
+        @include tab {
+          font-size: calc(64vw / (1180 / 100));
         }
       }
     }
   }
 
-
-
   &__banner {
     padding-top: 235px;
     text-align: center;
-    @include pc{
+    @include pc {
       padding-top: calc(235vw / (1200 / 100));
+    }
+    @include tab {
+      padding-top: calc(690vw / (768 / 100));
     }
     img {
       width: 1061px;
-      @include pc{
+      @include pc {
         width: calc(1061vw / (1200 / 100));
       }
       @include tab {
-        width: calc(1061vw / (768 / 100));
+        width: calc(1102vw / (1180 / 100));
       }
     }
   }

@@ -1,7 +1,6 @@
 <?php
 $templete = 'form';
 
-session_start();
 $token = sha1(uniqid(rand(), true));
 $_SESSION['key'] = $token;
 

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -8,7 +11,6 @@
   <link rel="stylesheet" href="<?php echo $path; ?>assets/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <link rel="icon" href="<?php echo $path; ?>assets/img/favicon.png">
   <link rel="apple-touch-icon" href="<?php echo $path; ?>assets/img/favicon.png">
 

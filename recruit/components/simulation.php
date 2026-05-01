@@ -1,4 +1,4 @@
-  <div class="simulation container rellax" id="simulation" data-rellax-speed="1">
+  <div class="simulation container rellax" id="simulation" data-rellax-speed="1" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
     <h2 class="simulation__title section-title">
       給与シミレーション
     </h2>

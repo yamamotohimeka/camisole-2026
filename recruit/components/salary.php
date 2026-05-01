@@ -1,4 +1,4 @@
-<div class="salary rellax" id="salary" data-rellax-speed="2">
+<div class="salary rellax" id="salary" data-rellax-speed="2" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-percentage="0">
 
   <div class="salary__inner container">
     <h2 class="salary__title section-title">給与詳細</h2>
@@ -9,7 +9,7 @@
           <div class="salary__content-description">
             <p class="salary__content-title">コースバック</p>
             <p class="salary__content-text">
-              女の子が脱いだり、触られたりする心配は一切ございません<br>
+              女の子が脱いだり、触られたりする<br class="tab">心配は一切ございません<br>
               見るだけで大丈夫！</p>
           </div>
           <div class="salary__content-price-list">
@@ -26,7 +26,8 @@
           <div class="salary__content-description">
             <p class="salary__content-title">コースバック</p>
             <p class="salary__content-text">
-              女の子が脱いだり、触られたりする心配は一切ございません<br>
+              女の子が脱いだり、触られたりする<br class="tab">
+              心配は一切ございません<br>
               手だけで大丈夫！
             </p>
           </div>

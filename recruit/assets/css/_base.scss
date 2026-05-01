@@ -218,6 +218,18 @@ img {
 [data-fade],
 [data-animate] {
   opacity: 0;
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.25s ease-out;
+}
+
+@include tab {
+  [data-fade],
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @keyframes fadeIn {
@@ -310,13 +322,24 @@ img {
   color: $navy;
   font-weight: bold;
   writing-mode: vertical-rl;
-
+  @include tab {
+    font-size: calc(85vw / (1180 / 100));
+    writing-mode: horizontal-tb;
+    top: 0;
+    right: unset;
+    left: calc(26vw / (768 / 100));
+  }
   &::before {
     content: "";
     display: block;
     width: 2px;
     height: 50px;
     background-color: $navy;
+    @include tab {
+      width: calc(118vw / (1180 / 100));
+      height: calc(2vw / (1180 / 100));
+      margin-top: calc(35vw / (768 / 100));
+    }
   }
   &::after {
     content: "";
@@ -327,6 +350,11 @@ img {
     background-size: 27px 27px;
     width: 27px;
     height: 27px;
+    @include tab {
+      width: calc(76vw / (1180 / 100));
+      height: calc(76vw / (1180 / 100));
+      background-size: calc(76vw / (1180 / 100)) calc(76vw / (1180 / 100));
+    }
   }
 }
 
@@ -354,7 +382,17 @@ img {
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  @include tab {
+    width: calc(72vw / (768 / 100));
+    height: calc(72vw / (768 / 100));
+    font-size: calc(14vw / (768 / 100));
+    right: calc(20vw / (768 / 100));
+    bottom: calc(190vw / (768 / 100));
+    gap: calc(2vw / (768 / 100));
+  }
 
   &__icon {
     line-height: 1;
@@ -385,7 +423,7 @@ img {
 
   @include sp {
     right: 16px;
-    bottom: 16px;
+    bottom: 90px;
     width: 60px;
     height: 60px;
     font-size: 12px;
@@ -399,4 +437,25 @@ img {
       font-size: 11px;
     }
   }
+}
+
+/* google recaptcha 非表示用 */
+.rc-anchor-error-msg-container {
+  display: none !important;
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.grecaptcha-logo {
+  display: none !important;
+}
+
+.grecaptcha-logo img {
+  display: none !important;
+}
+
+.grecaptcha-logo img {
+  display: none !important;
 }

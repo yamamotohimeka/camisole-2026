@@ -1,4 +1,4 @@
-  <div class="faq container rellax" id="faq" data-rellax-speed="5" data-rellax-percentage="-0.8">
+  <div class="faq container rellax" id="faq" data-rellax-speed="5" data-rellax-percentage="-0.8" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
     <h2 class="faq__title section-title">
       よくある質問
     </h2>
@@ -13,9 +13,9 @@
           </button>
           <div class="faq__inner-content-item-answer">
             オナクラというのはお客様の自慰行為を見るだけです。<br>
-            女の子が脱いだり、触られたりという心配は一切ございません。<br>
+            女の子が脱いだり、触られたりという心配は<br class="tab">一切ございません。<br>
             お客様と他愛もない会話をしながら日々の疲れを癒してあげてください。<br>
-            慣れてきたら手でお手伝いしてあげることも。もちろんお給料もアップします。
+            慣れてきたら手でお手伝いしてあげることも。<br class="tab">もちろんお給料もアップします。
           </div>
         </div>
         <div class="faq__inner-content-item">
@@ -24,8 +24,8 @@
             <i class="fas fa-chevron-up faq__inner-content-item-title-icon"></i>
           </button>
           <div class="faq__inner-content-item-answer">
-            当店の規約にきちんと納得した上で会員になっていただいております。<br>
-            高級オナクラということもあり富裕層の方が多く落ち着いた方ばかりです。
+            当店の規約にきちんと納得した上で<br class="tab">会員になっていただいております。<br>
+            高級オナクラということもあり富裕層の方が多く<br class="tab">落ち着いた方ばかりです。
           </div>
         </div>
         <div class="faq__inner-content-item">

@@ -10,14 +10,21 @@
   }
   @include tab {
     font-size: calc(34vw / (768 / 100));
+    padding-bottom: calc(300vw / (768 / 100));
   }
   form {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    @include tab {
+      gap: calc(50vw / (768 / 100));
+    }
   }
   &-box:first-of-type .hissu::after {
     content: "※必須(本名を入力する必要はありません)";
+    @include tab {
+      display: block;
+    }
   }
   .error {
     display: block;
@@ -43,6 +50,10 @@
         margin-left: calc(-4vw / (1280 / 100));
         font-size: calc(22vw / (1280 / 100));
       }
+      @include tab {
+        margin-left: calc(16vw / (768 / 100));
+        font-size: calc(18vw / (768 / 100));
+      }
       @include sp {
         font-size: calc(18vw / (440 / 100));
       }
@@ -61,9 +72,8 @@
     }
     @include tab {
       flex-direction: column;
-      margin: calc(40vw / (768 / 100)) 0;
-
-      gap: 0 calc(88vw / (768 / 100));
+      margin: calc(20vw / (768 / 100)) 0;
+      gap: 0 calc(44vw / (768 / 100));
     }
 
     label {
@@ -238,6 +248,8 @@
       }
       @include tab {
         font-size: calc(30vw / (768 / 100));
+        border-radius: calc(40vw / (768 / 100));
+        padding: calc(20vw / (768 / 100)) 0;
       }
       @include sp {
         width: 100%;

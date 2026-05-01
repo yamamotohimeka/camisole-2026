@@ -127,8 +127,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const MOBILE_SCROLL_EFFECT_QUERY = "(max-width: 768px)";
+const isMobileScrollEffectDisabled = () =>
+  window.matchMedia(MOBILE_SCROLL_EFFECT_QUERY).matches;
+
+const revealScrollAnimationElements = () => {
+  document.querySelectorAll("[data-fade], [data-animate]").forEach((element) => {
+    element.style.opacity = "1";
+    element.style.transform = "none";
+    element.style.willChange = "auto";
+  });
+};
+
+const setupBackToTopButton = (lenis = null) => {
+  const backToTopBtn = document.querySelector(".js-back-to-top");
+  if (!backToTopBtn) return;
+
+  const updateBackToTopVisibility = () => {
+    const y = window.pageYOffset ?? document.documentElement.scrollTop;
+    if (y > 600) backToTopBtn.classList.add("is-show");
+    else backToTopBtn.classList.remove("is-show");
+  };
+
+  backToTopBtn.addEventListener("click", () => {
+    if (lenis) lenis.scrollTo(0, { duration: 1.0 });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", updateBackToTopVisibility, {
+    passive: true,
+  });
+  updateBackToTopVisibility();
+};
+
 // Lenisの初期化とスクロール連動アニメーション
 document.addEventListener("DOMContentLoaded", () => {
+  if (isMobileScrollEffectDisabled()) {
+    revealScrollAnimationElements();
+    setupBackToTopButton();
+    return;
+  }
+
   if (typeof Lenis !== "undefined") {
     // Lenisインスタンスを作成
     const lenis = new Lenis({
@@ -165,10 +204,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // スクロール連動アニメーションを更新する関数
     // data-fade → fade-up、data-animate="効果名" で種類を指定
+    const TAB_BREAKPOINT = 768;
+    const TAB_PROGRESS_FACTOR = 1.5; // タブレット時は進みをゆっくり（見える・消えるともにもう少し長いスクロールで完了）
+    // 上に出るときのフェードアウト：t^curve。curve が小さいほど長く表示が残る（0.15〜0.35 目安）
+    const FADE_OUT_CURVE = 0.3;
+    const TAB_FADE_OUT_CURVE = 0.22;
+    // 給与（スマホ）：上に抜けるときさらにゆっくり消す
+    const SALARY_MOBILE_FADE_OUT_CURVE = 0.14;
+    // 給与（スマホ）：フェード開始を遅らせる＝この分だけ上にスクロールしてから立ち上がる
+    const SALARY_MOBILE_FADE_LAG_RATIO = 0.42;
+
     const updateScrollAnimate = (scroll) => {
       const windowHeight = window.innerHeight;
+      const isTab = window.innerWidth <= TAB_BREAKPOINT;
+      const progressRange = isTab ? windowHeight * TAB_PROGRESS_FACTOR : windowHeight;
+      const fadeOutCurve = isTab ? TAB_FADE_OUT_CURVE : FADE_OUT_CURVE;
       const moveDistance = 48;
-      const fadeUpDistance = 56; // data-fade 用：下からスライドする量（大きくすると差別化しやすい）
+      const fadeUpDistanceDefault = 56; // data-fade 用：下からスライド（PC）
 
       animateElements.forEach((element) => {
         const rect = element.getBoundingClientRect();
@@ -180,12 +232,34 @@ document.addEventListener("DOMContentLoaded", () => {
           element.getAttribute("data-animate") ||
           (element.hasAttribute("data-fade") ? "fade-up" : "fade-up");
         const effect = String(rawEffect).trim().toLowerCase() || "fade-up";
+        // 給与ブロックはスマホでフェード・スライドをかなり弱く（ほぼその場で薄く表示）
+        const isSalaryMobile = isTab && element.closest("#salary, .salary");
+        const fadeUpDistance = isSalaryMobile ? 10 : fadeUpDistanceDefault;
 
         if (elementTop < windowHeight && elementBottom > 0) {
-          let progress = Math.max(
-            0,
-            Math.min(1, (windowHeight - elementTop) / windowHeight)
-          );
+          let progress;
+          // 上にスクロールして要素が上端で見切れるとき：累乗曲線でゆっくりフェードアウト（早すぎない・自然な減り方）
+          if (elementTop < 0) {
+            const t = Math.max(0, Math.min(1, elementBottom / windowHeight));
+            const outCurve = isSalaryMobile
+              ? SALARY_MOBILE_FADE_OUT_CURVE
+              : fadeOutCurve;
+            progress = Math.pow(t, outCurve);
+          } else {
+            if (isSalaryMobile) {
+              const lagPx = windowHeight * SALARY_MOBILE_FADE_LAG_RATIO;
+              const denom = Math.max(1, progressRange - lagPx);
+              progress = Math.max(
+                0,
+                Math.min(1, (progressRange - elementTop - lagPx) / denom)
+              );
+            } else {
+              progress = Math.max(
+                0,
+                Math.min(1, (progressRange - elementTop) / progressRange)
+              );
+            }
+          }
           // "fade" だけ進みを早く（少ないスクロールで完了）
           if (effect === "fade") {
             progress = Math.min(1, progress / 0.35);
@@ -229,6 +303,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 初回表示時にも1回実行（スクロール前に見えている要素の状態を正す）
     updateScrollAnimate(0);
+
+    // タブレット⇔PCの切り替え時（リサイズ）にも progress を再計算
+    window.addEventListener("resize", () => {
+      updateScrollAnimate(lenis.scroll);
+    });
 
     // requestAnimationFrameループ
     function raf(time) {
@@ -283,34 +362,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ページトップへ戻るボタン
-    const backToTopBtn = document.querySelector(".js-back-to-top");
-    if (backToTopBtn) {
-      const updateBackToTopVisibility = () => {
-        const y = window.pageYOffset ?? document.documentElement.scrollTop;
-        if (y > 600) backToTopBtn.classList.add("is-show");
-        else backToTopBtn.classList.remove("is-show");
-      };
-
-      backToTopBtn.addEventListener("click", () => {
-        // Lenis が有効なら Lenis で、無ければ通常スクロール
-        if (window.lenis) window.lenis.scrollTo(0, { duration: 1.0 });
-        else window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // Lenis のスクロールでも発火させる
-      lenis.on("scroll", updateBackToTopVisibility);
-      updateBackToTopVisibility();
-    }
+    setupBackToTopButton(lenis);
   }
 });
 
 // Rellaxの初期化（Lenisと併用可能）
+// タブレット用速度は各要素の data-rellax-mobile-speed（768px未満）で指定可能
+// SP: data-rellax-xs-speed + data-rellax-mobile-speed = 0 in PHP. breakpoints [440,769,1280]
 document.addEventListener("DOMContentLoaded", () => {
+  if (isMobileScrollEffectDisabled()) return;
+
   if (typeof Rellax !== "undefined") {
     const rellaxElement = document.querySelector(".rellax");
     if (rellaxElement) {
       new Rellax(".rellax", {
         speed: 2,
+        breakpoints: [440, 769, 1280],
       });
     }
   }

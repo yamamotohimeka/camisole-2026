@@ -1,4 +1,4 @@
-  <div class="recruit container rellax" id="apply" data-rellax-speed="2" data-rellax-percentage="-0.5">
+  <div class="recruit container rellax" id="apply" data-rellax-speed="2" data-rellax-percentage="-0.5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
     <h2 class="recruit__title section-title">
       応募する
     </h2>

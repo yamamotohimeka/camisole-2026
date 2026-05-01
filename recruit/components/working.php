@@ -1,10 +1,10 @@
-<div class="working rellax" id="working">
+<div class="working rellax" id="working" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
   <div class="working__top" data-rellax-speed="-8" data-rellax-percentage="0.5">
-    <div class="working__bg rellax" data-rellax-speed="2" data-rellax-percentage="0.5">
+    <div class="working__bg rellax" data-rellax-speed="2" data-rellax-percentage="0.5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
       <img src="<?php echo $path; ?>assets/img/working-deco2.png" alt="デコ">
       <img src="<?php echo $path; ?>assets/img/working-deco2-sp.png" alt="デコ">
     </div>
-    <div class="working__deco rellax" data-rellax-speed="2" data-rellax-percentage="0.5">
+    <div class="working__deco rellax" data-rellax-speed="2" data-rellax-percentage="0.5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
       <img src="<?php echo $path; ?>assets/img/working-deco.png" alt="デコ">
     </div>
 
@@ -21,19 +21,19 @@
           <div class="working__content-item">
             <p class="working__content-title">出稼ぎなら短期間で高収入</p>
             <div class="working__content-text">
-              <p>「1ヵ月で〇〇万円稼ぎたい！」、「観光がてら気軽に働きたい！」など<br>
-                どんな要望でもお応えできるようスタッフが全力でサポートいたします。<br>
-                気になることがあれば事前にスタッフにご相談ください。<br>
-                離れた土地なら友人や知人にバレる心配もございません。
+              <p>「1ヵ月で〇〇万円稼ぎたい！」、「観光がてら気軽に働きたい！」<br class="tab">など<br class="pc">
+                どんな要望でもお応えできるようスタッフが<br class="tab">全力でサポートいたします。<br class="pc">
+                気になることがあれば<br class="tab">事前にスタッフにご相談ください。<br>
+                離れた土地なら友人や知人にバレる<br class="tab">心配もございません。
               </p>
             </div>
           </div>
           <div class="working__content-item" data-animate="fade">
             <p class="working__content-title">充実の日給保証</p>
             <div class="working__content-text">
-              <p>お陰様でいつも忙しいため暇なときは本当にないのですが…<br>
-                もし出勤してもお客様が来ない場合は、待機保証が必ず付いてきます。<br>
-                <span>6時間勤務で1日 50,000円の保証</span>
+              <p>お陰様でいつも忙しいため暇なときは<br class="tab">本当にないのですが…<br class="pc">
+                もし出勤してもお客様が来ない場合は、<br class="tab">待機保証が必ず付いてきます。<br>
+                <span>6時間勤務で<br class="tab">1日 50,000円の保証</span>
               </p>
             </div>
           </div>
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="working__bottom rellax" data-rellax-speed="3"
+      <div class="working__bottom rellax" data-rellax-speed="3" data-rellax-xs-speed="0" data-rellax-mobile-speed="0"
         data-rellax-percentage="0.5">
         <div class="working__bottom-item">
           <div class="working__bottom-img">

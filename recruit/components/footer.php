@@ -1,6 +1,5 @@
 <footer class="footer">
-  <div class="footer__inner">
-
+  <div class="footer__inner pc">
     <div class="footer__nav">
       <ul class="footer__nav-list">
         <li class="footer__nav-item">
@@ -33,9 +32,23 @@
       <img src="<?php echo $path; ?>assets/img/footer-logo.png" alt="CAMISOLE">
     </div>
   </div>
-  <p class="footer__copyright">
+  <p class="footer__copyright pc">
     &copy; 2026 CAMISOLE. All rights reserved.
   </p>
+
+  <div class="footer__tabnav tab">
+    <ul class="footer__tabnav-list">
+      <li class="footer__tabnav-item">
+        <img src="<?php echo $path; ?>assets/img/tel-icon.png" alt="TEL">
+      </li>
+      <li class="footer__tabnav-item">
+        <img src="<?php echo $path; ?>assets/img/line-icon.png" alt="LINE">
+      </li>
+      <li class="footer__tabnav-item">
+        <img src="<?php echo $path; ?>assets/img/mail-icon.png" alt="mail">
+      </li>
+    </ul>
+  </div>
 </footer>
 
 <button type="button" class="back-to-top js-back-to-top" aria-label="ページトップへ戻る">
