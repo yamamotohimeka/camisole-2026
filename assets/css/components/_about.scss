@@ -1,0 +1,21 @@
+@use "../mixin" as *;
+
+.about {
+  padding-top: 70px;
+  @include tab {
+    padding-top: calc(50vw / (768 / 100));
+  }
+  h2 {
+    text-align: center;
+    padding-bottom: 80px;
+    @include tab {
+      padding-bottom: calc(50vw / (768 / 100));
+    }
+    img {
+      width: 698px;
+      @include tab {
+        width: calc(600vw / (768 / 100));
+      }
+    }
+  }
+}

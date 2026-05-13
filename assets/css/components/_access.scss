@@ -1,0 +1,91 @@
+@use "../mixin" as *;
+
+.access {
+  padding-top: 70px;
+  @include tab {
+    padding: calc(50vw / (768 / 100)) calc(20vw / (768 / 100));
+  }
+  h2 {
+    text-align: center;
+    padding-bottom: 80px;
+    img {
+      width: 698px;
+      @include tab {
+        width: calc(600vw / (768 / 100));
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin: 0 auto;
+    width: 700px;
+    padding-bottom: 100px;
+    @include tab {
+      width: 100%;
+      padding-bottom: calc(50vw / (768 / 100));
+    }
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h3 {
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+      }
+      &-map {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #f897cf;
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    &__ban {
+      margin: 0 auto;
+      padding-bottom: 100px;
+      width: 700px;
+      @include tab {
+        width: 100%;
+        padding-bottom: calc(50vw / (768 / 100));
+      }
+      h3 {
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+        background-color: #f897cf;
+        padding: 10px;
+        color: #fff;
+        @include tab {
+          font-size: calc(18vw / (768 / 100));
+          padding: calc(10vw / (768 / 100));
+        }
+      }
+      &-list {
+        width: fit-content;
+        margin: 0 auto;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: left;
+        @include tab {
+          padding-top: calc(70vw / (768 / 100));
+        }
+        li {
+          font-size: 14px;
+          font-weight: 400;
+          color: #000;
+          list-style: disc;
+          @include tab {
+            font-size: calc(18vw / (768 / 100));
+          }
+        }
+      }
+    }
+  }
+}

@@ -22,7 +22,7 @@
             0120-960-547
           </p>
         </a>
-        <a href="https://lin.ee/r3i3RZk" target="_blank">
+        <a href="https://line.me/ti/p/dBGi0dUhfI" target="_blank">
           <p class="recruit__inner-content-item">
             LINEで応募する
           </p>

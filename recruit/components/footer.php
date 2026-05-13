@@ -28,6 +28,9 @@
         </li>
       </ul>
     </div>
+    <div class="footer__nav-business">
+      <a href="https://camisole-osaka.com/" class="footer__nav-link" target="_blank">営業サイトはこちら</a>
+    </div>
     <div class="footer__logo">
       <img src="<?php echo $path; ?>assets/img/footer-logo.png" alt="CAMISOLE">
     </div>

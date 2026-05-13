@@ -1,0 +1,86 @@
+@use "../_base" as *;
+@use "../_mixin" as *;
+.schedule {
+  padding-top: 50px;
+
+  h2 {
+    text-align: center;
+    img {
+      width: 698px;
+      @include tab {
+        width: calc(600vw / (768 / 100));
+      }
+    }
+  }
+  &__btn {
+    margin: 40px 0 50px;
+    @include tab {
+      margin: calc(40vw / (768 / 100)) 0 calc(50vw / (768 / 100));
+    }
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      @include tab {
+        overflow-x: scroll;
+        gap: calc(12vw / (768 / 100));
+      }
+    }
+
+    &__list-item {
+      flex: 1;
+    }
+
+    &__list-link {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      background-color: #646464;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 12px 8px;
+      text-align: center;
+      transition: all 0.3s;
+      @include tab {
+        width: calc(200vw / (768 / 100));
+        font-size: calc(18vw / (768 / 100));
+        padding: calc(12vw / (768 / 100)) calc(10vw / (768 / 100));
+      }
+
+      &.dateActive,
+      &:hover {
+        background-color: #f897b8;
+        color: #fff;
+      }
+    }
+
+    &__list-date {
+      display: block;
+      font-size: 23px;
+      font-weight: 400;
+      font-feature-settings: "palt";
+      @include tab {
+        font-size: calc(26vw / (768 / 100));
+      }
+    }
+  }
+
+  &__nav {
+    &__list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px 10px;
+      width: calc((260px * 4) + (10px * 3));
+      margin: 0 auto;
+      @include tab {
+        justify-content: space-between;
+        gap: calc(40vw / (768 / 100)) calc(10vw / (768 / 100));
+        width: 100%;
+      }
+    }
+  }
+}

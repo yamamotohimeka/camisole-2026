@@ -46,6 +46,21 @@
     @include tab {
       display: none;
     }
+    &-business {
+      text-align: center;
+      background-color: #fff;
+      padding: 10px 0;
+      width: 500px;
+      margin: 20px auto;
+
+      a {
+        color: #ff7687;
+        display: block;
+      }
+      @include tab {
+        display: none;
+      }
+    }
     &-list {
       display: flex;
       justify-content: space-between;

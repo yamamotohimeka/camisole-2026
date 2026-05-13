@@ -964,6 +964,7 @@ img {
 }
 .header__hamburger-menu.active .header__hamburger-menu-line:nth-child(3)::after {
   content: "CLOSE";
+  top: 3.3854166667vw;
   opacity: 1;
   transform: rotate(45deg);
 }
@@ -1149,6 +1150,22 @@ img {
     display: none;
   }
 }
+.footer__nav-business {
+  text-align: center;
+  background-color: #fff;
+  padding: 10px 0;
+  width: 500px;
+  margin: 20px auto;
+}
+.footer__nav-business a {
+  color: #ff7687;
+  display: block;
+}
+@media (max-width: 768px) {
+  .footer__nav-business {
+    display: none;
+  }
+}
 .footer__nav-list {
   display: flex;
   justify-content: space-between;
@@ -1249,6 +1266,7 @@ img {
 @media (max-width: 768px) {
   .top__swiper {
     width: 95.3389830508vw !important;
+    z-index: 0 !important;
   }
 }
 .top .swiper {

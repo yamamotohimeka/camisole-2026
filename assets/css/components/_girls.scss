@@ -1,0 +1,30 @@
+@use "../mixin" as *;
+
+.girls {
+  padding-top: 70px;
+
+  h2 {
+    text-align: center;
+    padding-bottom: 80px;
+    img {
+      width: 698px;
+      @include tab {
+        width: calc(600vw / (768 / 100));
+      }
+    }
+  }
+  &__nav {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px 10px;
+      @include tab {
+        justify-content: space-between;
+        gap: calc(40vw / (768 / 100)) calc(10vw / (768 / 100));
+        width: 100%;
+      }
+    }
+  }
+}

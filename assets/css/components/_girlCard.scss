@@ -1,0 +1,146 @@
+@use "../_base" as *;
+@use "../_mixin" as *;
+
+.girlCard {
+  width: 260px;
+  @include tab {
+    width: calc(350vw / (768 / 100));
+  }
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &-img {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+    @include tab {
+      width: calc(350vw / (768 / 100));
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition:
+        transform 0.4s,
+        filter 0.4s;
+      @include tab {
+        width: calc(350vw / (768 / 100));
+      }
+    }
+  }
+  &-imgBtn {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(248, 151, 184, 0.45);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    &:hover,
+    &:focus-visible {
+      img {
+        filter: brightness(1.08);
+        transform: scale(1.05);
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  &-newface {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    display: none;
+    z-index: 2;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &-info {
+    text-align: center;
+    width: 220px;
+    margin: 0 auto;
+    margin-top: -20px;
+    z-index: 1;
+    @include tab {
+      width: calc(300vw / (768 / 100));
+    }
+  }
+  &-name {
+    border: 3px solid #f897b8;
+    background-color: #fff;
+    font-size: 24px;
+    color: #f897b8;
+    font-weight: bold;
+    border-top-right-radius: 28px;
+    border-top-left-radius: 28px;
+    @include tab {
+      font-size: calc(26vw / (768 / 100));
+      padding: calc(5vw / (768 / 100)) 0;
+      border-top-right-radius: calc(30vw / (768 / 100));
+      border-top-left-radius: calc(30vw / (768 / 100));
+    }
+  }
+  &-size {
+    background-color: #f897b8;
+    color: #fff;
+    padding: 5px 10px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    font-feature-settings: "palt";
+    font-size: 16px;
+    @include tab {
+      font-size: calc(20vw / (768 / 100));
+      padding: calc(5vw / (768 / 100)) calc(10vw / (768 / 100));
+      border-bottom-right-radius: calc(30vw / (768 / 100));
+      border-bottom-left-radius: calc(30vw / (768 / 100));
+    }
+  }
+  &-nominal {
+    color: #f897b8;
+    font-weight: 500;
+    font-size: 18px;
+    padding-top: 10px;
+    @include tab {
+      font-size: calc(23vw / (768 / 100));
+      padding-top: calc(10vw / (768 / 100));
+    }
+  }
+  &-time {
+    width: 170px;
+    border: 3px solid #f897b8;
+    font-size: 27px;
+    color: #f897b8;
+    border-radius: 10px;
+    margin: 5px auto 0 auto;
+    @include tab {
+      width: calc(250vw / (768 / 100));
+      font-size: calc(29vw / (768 / 100));
+      border-radius: calc(10vw / (768 / 100));
+      border: calc(3vw / (768 / 100)) solid #f897b8;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../mixin" as *;
 
 .header {
@@ -160,6 +161,7 @@
           transform: translateY(-50%) rotate(-45deg);
           &::after {
             content: "CLOSE";
+            top: calc(26vw / (768 / 100));
             opacity: 1;
             transform: rotate(45deg); // ×の回転を打ち消してテキストを水平に
           }
@@ -259,7 +261,7 @@
     }
 
     &:hover {
-      color: darken($base, 10%);
+      color: color.adjust($base, $lightness: -10%);
       background-color: rgba(255, 118, 135, 0.05);
       transform: translateX(8px);
       &::before {

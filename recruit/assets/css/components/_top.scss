@@ -34,6 +34,7 @@
     }
     @include tab {
       width: calc(1125vw / (1180 / 100)) !important;
+      z-index: 0 !important;
     }
   }
 
