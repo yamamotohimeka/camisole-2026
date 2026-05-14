@@ -87,6 +87,7 @@
         padding: calc(8vw / (1200 / 100)) 0;
       }
       @include tab {
+        font-size: calc(34vw / (768 / 100));
         width: 100%;
         margin-bottom: calc(16vw / (768 / 100));
       }
@@ -115,9 +116,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 28px 31px;
-
+      @include tab {
+        gap: calc(28vw / (768 / 100)) calc(31vw / (768 / 100));
+      }
       &-label {
         width: 100%;
+        @include tab {
+          font-size: calc(34vw / (768 / 100));
+        }
       }
       &-inner {
         display: inline-flex;
@@ -127,10 +133,17 @@
         input {
           width: 20px;
           height: 20px;
+          @include tab {
+            width: calc(30vw / (768 / 100));
+            height: calc(30vw / (768 / 100));
+          }
         }
         label {
           font-size: 20px;
           width: auto;
+          @include tab {
+            font-size: calc(34vw / (768 / 100));
+          }
         }
       }
     }
@@ -247,7 +260,7 @@
         border-radius: calc(16vw / (1280 / 100));
       }
       @include tab {
-        font-size: calc(30vw / (768 / 100));
+        font-size: calc(34vw / (768 / 100));
         border-radius: calc(40vw / (768 / 100));
         padding: calc(20vw / (768 / 100)) 0;
       }

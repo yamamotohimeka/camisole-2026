@@ -152,6 +152,7 @@
         font-size: calc(28vw / (1200 / 100));
       }
       @include tab {
+        font-weight: 400;
         font-size: calc(36vw / (768 / 100));
       }
       color: #000000;
@@ -188,9 +189,10 @@
         padding-top: calc(11vw / (1200 / 100));
       }
       @include tab {
-        font-size: calc(22vw / (768 / 100));
+        font-size: calc(23vw / (768 / 100));
         gap: calc(7vw / (768 / 100));
         padding-top: calc(11vw / (768 / 100));
+        font-weight: 400;
         span {
           font-size: calc(32vw / (768 / 100));
         }
@@ -263,7 +265,8 @@
       font-size: calc(15vw / (1200 / 100));
     }
     @include tab {
-      font-size: calc(22vw / (768 / 100));
+      font-size: calc(24vw / (768 / 100));
+      font-weight: 400;
     }
   }
 }

@@ -2023,7 +2023,7 @@ img {
 @media (max-width: 768px) {
   .standard__content-text {
     font-size: 3.2203389831vw;
-    padding: 3.2552083333vw 0.6510416667vw 0;
+    padding: 5.859375vw 0.6510416667vw 0;
   }
 }
 .standard__content-text::after {
@@ -2057,7 +2057,7 @@ img {
 }
 @media (max-width: 768px) {
   .standard__img {
-    padding-top: 11.71875vw;
+    padding-top: 0;
   }
 }
 .standard__img-1 {
@@ -2069,7 +2069,7 @@ img {
 }
 @media (max-width: 768px) {
   .standard__img-1 img {
-    width: 100%;
+    width: 100vw;
   }
 }
 .standard__img-2 {
@@ -2087,7 +2087,7 @@ img {
 }
 @media (max-width: 440px) {
   .standard__img-2 {
-    top: 16.8181818182vw;
+    top: 17.9545454545vw;
     left: 0;
   }
 }
@@ -3198,6 +3198,7 @@ img {
 }
 @media (max-width: 768px) {
   .working__content-title {
+    font-weight: 400;
     font-size: 4.6875vw;
   }
 }
@@ -3235,9 +3236,10 @@ img {
 }
 @media (max-width: 768px) {
   .working__content-text {
-    font-size: 2.8645833333vw;
+    font-size: 2.9947916667vw;
     gap: 0.9114583333vw;
     padding-top: 1.4322916667vw;
+    font-weight: 400;
   }
   .working__content-text span {
     font-size: 4.1666666667vw;
@@ -3330,7 +3332,8 @@ img {
 }
 @media (max-width: 768px) {
   .working__bottom-text {
-    font-size: 2.8645833333vw;
+    font-size: 3.125vw;
+    font-weight: 400;
   }
 }
 
@@ -3583,6 +3586,7 @@ img {
     gap: 1.5625vw;
     margin: 0 auto;
     flex-direction: column;
+    font-weight: 400;
   }
 }
 .faq__inner-content-item-answer::before {
@@ -3976,6 +3980,7 @@ img {
 }
 @media (max-width: 768px) {
   .form-box label {
+    font-size: 4.4270833333vw;
     width: 100%;
     margin-bottom: 2.0833333333vw;
   }
@@ -4010,8 +4015,18 @@ img {
   flex-wrap: wrap;
   gap: 28px 31px;
 }
+@media (max-width: 768px) {
+  .form-box-radio {
+    gap: 3.6458333333vw 4.0364583333vw;
+  }
+}
 .form-box-radio-label {
   width: 100%;
+}
+@media (max-width: 768px) {
+  .form-box-radio-label {
+    font-size: 4.4270833333vw;
+  }
 }
 .form-box-radio-inner {
   display: inline-flex;
@@ -4023,9 +4038,20 @@ img {
   width: 20px;
   height: 20px;
 }
+@media (max-width: 768px) {
+  .form-box-radio-inner input {
+    width: 3.90625vw;
+    height: 3.90625vw;
+  }
+}
 .form-box-radio-inner label {
   font-size: 20px;
   width: auto;
+}
+@media (max-width: 768px) {
+  .form-box-radio-inner label {
+    font-size: 4.4270833333vw;
+  }
 }
 .form textarea {
   padding: 8px 12px;
@@ -4158,7 +4184,7 @@ img {
 }
 @media (max-width: 768px) {
   .form-submit input {
-    font-size: 3.90625vw;
+    font-size: 4.4270833333vw;
     border-radius: 5.2083333333vw;
     padding: 2.6041666667vw 0;
   }

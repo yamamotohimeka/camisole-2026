@@ -242,6 +242,7 @@
           gap: calc(12vw / (768 / 100));
           margin: 0 auto;
           flex-direction: column;
+          font-weight: 400;
         }
         &::before {
           content: "A";

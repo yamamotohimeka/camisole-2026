@@ -38,7 +38,7 @@
       padding: 25px 5px 0;
       @include tab {
         font-size: calc(38vw / (1180 / 100));
-        padding: calc(25vw / (768 / 100)) calc(5vw / (768 / 100)) 0;
+        padding: calc(45vw / (768 / 100)) calc(5vw / (768 / 100)) 0;
       }
       &::after {
         content: "";
@@ -67,7 +67,7 @@
     height: 100%;
     padding-top: 113px;
     @include tab {
-      padding-top: calc(90vw / (768 / 100));
+      padding-top: 0;
     }
 
     &-1 {
@@ -76,7 +76,7 @@
         width: 576px;
         margin: 0 auto;
         @include tab {
-          width: 100%;
+          width: calc(768vw / (768 / 100));
         }
       }
     }
@@ -91,7 +91,7 @@
         z-index: 0;
       }
       @include sp {
-        top: calc(74vw / (440 / 100));
+        top: calc(79vw / (440 / 100));
         left: 0;
       }
     }
