@@ -41,7 +41,7 @@
     }
     &__newface {
       width: 520px;
-      height: 712px;
+      height: 657px;
       flex-shrink: 0;
       background-image: url(../img/slider-bg.png);
       background-size: 100% 100%;
@@ -60,20 +60,20 @@
         align-items: flex-start;
         height: 100%;
         box-sizing: border-box;
-        padding-top: 90px;
+        padding-top: 70px;
         @include tab {
           padding-top: calc(90vw / (768 / 100));
         }
       }
 
       .girlCard {
-        width: 384px;
+        width: 340px;
         @include tab {
           width: calc(384vw / (768 / 100));
         }
 
         &-img {
-          height: 538px;
+          height: 483px;
           overflow: visible;
           @include tab {
             height: auto;
@@ -86,10 +86,10 @@
         }
 
         &-newface {
-          top: -55px;
+          top: -25px;
           left: -31px;
-          width: 96px;
-          height: 96px;
+          width: 76px;
+          height: 76px;
         }
 
         &-info {

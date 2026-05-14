@@ -92,7 +92,8 @@
   &-name {
     border: 3px solid #f897b8;
     background-color: #fff;
-    font-size: 24px;
+    font-size: 19px;
+    padding: 5px 0;
     color: #f897b8;
     font-weight: bold;
     border-top-right-radius: 28px;
@@ -102,6 +103,8 @@
       padding: calc(5vw / (768 / 100)) 0;
       border-top-right-radius: calc(30vw / (768 / 100));
       border-top-left-radius: calc(30vw / (768 / 100));
+      border: calc(2vw / (768 / 100)) solid #f897b8;
+      padding: calc(5vw / (768 / 100)) 0;
     }
   }
   &-size {
@@ -131,14 +134,14 @@
   }
   &-time {
     width: 170px;
-    border: 3px solid #f897b8;
-    font-size: 27px;
+    border: 2px solid #f897b8;
+    font-size: 20px;
     color: #f897b8;
     border-radius: 10px;
     margin: 5px auto 0 auto;
     @include tab {
       width: calc(250vw / (768 / 100));
-      font-size: calc(29vw / (768 / 100));
+      font-size: calc(28vw / (768 / 100));
       border-radius: calc(10vw / (768 / 100));
       border: calc(3vw / (768 / 100)) solid #f897b8;
     }

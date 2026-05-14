@@ -36,7 +36,7 @@
       display: block;
       width: 100%;
       border-radius: 16px;
-      background-color: #646464;
+      background-color: #d4d4d4;
       color: #fff;
       cursor: pointer;
       font-weight: 600;
@@ -58,7 +58,7 @@
 
     &__list-date {
       display: block;
-      font-size: 23px;
+      font-size: 21px;
       font-weight: 400;
       font-feature-settings: "palt";
       @include tab {

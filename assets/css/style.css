@@ -1245,7 +1245,7 @@ template {
 }
 .top__slider__newface {
   width: 520px;
-  height: 712px;
+  height: 657px;
   flex-shrink: 0;
   background-image: url(../img/slider-bg.png);
   background-size: 100% 100%;
@@ -1263,7 +1263,7 @@ template {
   align-items: flex-start;
   height: 100%;
   box-sizing: border-box;
-  padding-top: 90px;
+  padding-top: 70px;
 }
 @media (max-width: 768px) {
   .top__slider__newface-item {
@@ -1271,7 +1271,7 @@ template {
   }
 }
 .top__slider__newface .girlCard {
-  width: 384px;
+  width: 340px;
 }
 @media (max-width: 768px) {
   .top__slider__newface .girlCard {
@@ -1279,7 +1279,7 @@ template {
   }
 }
 .top__slider__newface .girlCard-img {
-  height: 538px;
+  height: 483px;
   overflow: visible;
 }
 @media (max-width: 768px) {
@@ -1293,10 +1293,10 @@ template {
   }
 }
 .top__slider__newface .girlCard-newface {
-  top: -55px;
+  top: -25px;
   left: -31px;
-  width: 96px;
-  height: 96px;
+  width: 76px;
+  height: 76px;
 }
 .top__slider__newface .girlCard-info {
   width: 224px;
@@ -1552,7 +1552,7 @@ template {
   display: block;
   width: 100%;
   border-radius: 16px;
-  background-color: #646464;
+  background-color: #d4d4d4;
   color: #fff;
   cursor: pointer;
   font-weight: 600;
@@ -1573,7 +1573,7 @@ template {
 }
 .schedule__btn__list-date {
   display: block;
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 400;
   font-feature-settings: "palt";
 }
@@ -1693,7 +1693,8 @@ template {
 .girlCard-name {
   border: 3px solid #f897b8;
   background-color: #fff;
-  font-size: 24px;
+  font-size: 19px;
+  padding: 5px 0;
   color: #f897b8;
   font-weight: bold;
   border-top-right-radius: 28px;
@@ -1705,6 +1706,8 @@ template {
     padding: 0.6510416667vw 0;
     border-top-right-radius: 3.90625vw;
     border-top-left-radius: 3.90625vw;
+    border: 0.2604166667vw solid #f897b8;
+    padding: 0.6510416667vw 0;
   }
 }
 .girlCard-size {
@@ -1738,8 +1741,8 @@ template {
 }
 .girlCard-time {
   width: 170px;
-  border: 3px solid #f897b8;
-  font-size: 27px;
+  border: 2px solid #f897b8;
+  font-size: 20px;
   color: #f897b8;
   border-radius: 10px;
   margin: 5px auto 0 auto;
@@ -1747,7 +1750,7 @@ template {
 @media (max-width: 768px) {
   .girlCard-time {
     width: 32.5520833333vw;
-    font-size: 3.7760416667vw;
+    font-size: 3.6458333333vw;
     border-radius: 1.3020833333vw;
     border: 0.390625vw solid #f897b8;
   }
