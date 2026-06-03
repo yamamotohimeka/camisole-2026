@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Sass
+.sass-cache/
+
+# Source maps (generated from SCSS)
+*.css.map
+
+# Logs & temp
+*.log
+*.tmp
+*.cache
+
+# Archives (e.g. image optimization backups)
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
