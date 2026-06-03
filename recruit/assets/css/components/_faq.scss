@@ -239,9 +239,8 @@
         @include tab {
           font-size: calc(25vw / (768 / 100));
           width: 90%;
-          gap: calc(12vw / (768 / 100));
+          gap: calc(20vw / (768 / 100));
           margin: 0 auto;
-          flex-direction: column;
           font-weight: 400;
         }
         &::before {
@@ -255,7 +254,7 @@
             font-size: calc(44vw / (1200 / 100));
           }
           @include tab {
-            font-size: calc(64vw / (768 / 100));
+            font-size: calc(50vw / (768 / 100));
           }
         }
 
@@ -269,8 +268,8 @@
               calc(25vw / (1200 / 100)) calc(63vw / (1200 / 100));
           }
           @include tab {
-            padding: 0 calc(20vw / (768 / 100)) calc(30vw / (768 / 100))
-              calc(30vw / (768 / 100));
+            padding: calc(15vw / (768 / 100)) calc(20vw / (768 / 100)) calc(30vw / (768 / 100))
+              calc(20vw / (768 / 100));
           }
         }
       }

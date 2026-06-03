@@ -6,25 +6,25 @@
           <a href="<?php echo $path; ?>index.php" class="footer__nav-link">TOP</a>
         </li>
         <li class="footer__nav-item">
-          <a href="<?php echo $path; ?>concept.php" class="footer__nav-link">コンセプト</a>
+          <a href="#concept" class="footer__nav-link">コンセプト</a>
         </li>
         <li class="footer__nav-item">
-          <a href="<?php echo $path; ?>standard.php" class="footer__nav-link">採用基準について</a>
+          <a href="#standard" class="footer__nav-link">採用基準について</a>
         </li>
         <li class="footer__nav-item">
-          <a href="<?php echo $path; ?>salary.php" class="footer__nav-link">給与詳細</a>
+          <a href="#salary" class="footer__nav-link">給与詳細</a>
         </li>
         <li class="footer__nav-item">
-          <a href="<?php echo $path; ?>simulation.php" class="footer__nav-link">給与シミレーション</a>
+          <a href="#simulation" class="footer__nav-link">給与シミュレーション</a>
         </li>
         <li class="footer__nav-item">
-          <a href="<?php echo $path; ?>earn-money.php" class="footer__nav-link">出稼ぎについて</a>
+          <a href="#working" class="footer__nav-link">出稼ぎについて</a>
         </li>
         <li class="footer__nav-item">
-          <a href="<?php echo $path; ?>faq.php" class="footer__nav-link">よくある質問</a>
+          <a href="#faq" class="footer__nav-link">よくある質問</a>
         </li>
         <li class="footer__nav-item">
-          <a href="<?php echo $path; ?>apply.php" class="footer__nav-link">応募する</a>
+          <a href="#apply" class="footer__nav-link">応募する</a>
         </li>
       </ul>
     </div>
@@ -42,13 +42,19 @@
   <div class="footer__tabnav tab">
     <ul class="footer__tabnav-list">
       <li class="footer__tabnav-item">
-        <img src="<?php echo $path; ?>assets/img/tel-icon.png" alt="TEL">
+        <a href="#tel">
+          <img src=" <?php echo $path; ?>assets/img/tel-icon.png" alt="TEL">
+        </a>
       </li>
       <li class="footer__tabnav-item">
-        <img src="<?php echo $path; ?>assets/img/line-icon.png" alt="LINE">
+        <a href="#line">
+          <img src="<?php echo $path; ?>assets/img/line-icon.png" alt="LINE">
+        </a>
       </li>
       <li class="footer__tabnav-item">
-        <img src="<?php echo $path; ?>assets/img/mail-icon.png" alt="mail">
+        <a href="#mail">
+          <img src="<?php echo $path; ?>assets/img/mail-icon.png" alt="mail">
+        </a>
       </li>
     </ul>
   </div>

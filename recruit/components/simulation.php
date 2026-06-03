@@ -1,6 +1,6 @@
   <div class="simulation container rellax" id="simulation" data-rellax-speed="1" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
     <h2 class="simulation__title section-title">
-      給与シミレーション
+      給与シミュレーション
     </h2>
     <div class="simulation__inner ">
       <h3 class="simulation__inner-title">当店で働く女の子のお給料</h3>

@@ -12,7 +12,7 @@
             <i class="fas fa-chevron-up faq__inner-content-item-title-icon"></i>
           </button>
           <div class="faq__inner-content-item-answer">
-            オナクラというのはお客様の自慰行為を見るだけです。<br>
+            オナクラというのは<br class="tab">お客様の自慰行為を見るだけです。<br>
             女の子が脱いだり、触られたりという心配は<br class="tab">一切ございません。<br>
             お客様と他愛もない会話をしながら日々の疲れを癒してあげてください。<br>
             慣れてきたら手でお手伝いしてあげることも。<br class="tab">もちろんお給料もアップします。
@@ -44,9 +44,7 @@
             <i class="fas fa-chevron-up faq__inner-content-item-title-icon"></i>
           </button>
           <div class="faq__inner-content-item-answer">
-            ご心配ください。身内には絶対バレません。<br>
-            お客様の顔は全く見えません。<br>
-            お客様の声も全く聞こえません。<br>
+            そのような心配は不要です！<br>当店ではアリバイ会社を完備しており、<br>身バレ対策には力を入れておりますので<br>風俗店に勤めていることがバレることは<br class="tab">ありません◎
           </div>
         </div>
         <div class="faq__inner-content-item">
@@ -73,7 +71,7 @@
             <i class="fas fa-chevron-up faq__inner-content-item-title-icon"></i>
           </button>
           <div class="faq__inner-content-item-answer">
-            良寛美です。希望者は事前にご相談ください。
+            寮完備です。希望者は事前にご相談ください。
           </div>
         </div>
       </div>

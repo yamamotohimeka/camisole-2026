@@ -459,3 +459,27 @@ img {
 .grecaptcha-logo img {
   display: none !important;
 }
+
+// サイト全体のリンク・ボタンからタップ時の青いハイライトと枠線を消す
+a, 
+button, 
+[role="button"] {
+  -webkit-tap-highlight-color: transparent; // タップ時のハイライト（青い背景や枠）を透明化
+  
+  &:focus,
+  &:active {
+    outline: none; // タップ/フォーカス時のアウトライン（青い線）を強制的に消す
+    box-shadow: none; // ブラウザによってbox-shadowで線が出る場合の対策
+  }
+}
+
+// 固定ナビのクリック領域を安定させるための追加指定
+.footer__tabnav {
+  &-item {
+    a {
+      display: block; // リンクをブロック要素にして、ハイライトの範囲を画像全体に合わせる
+      line-height: 0; // 画像の下に隙間が出るのを防ぐ
+      text-decoration: none;
+    }
+  }
+}

@@ -16,13 +16,13 @@
         <span>※勧誘や強要などは一切ございません</span>
       </p>
       <div class="recruit__inner-content-items">
-        <a href="tel:0120960547" target="_blank">
+        <a href="tel:0120960547" target="_blank" id="tel">
           <p class="recruit__inner-content-item">
             <span>24時間受付中</span>
             0120-960-547
           </p>
         </a>
-        <a href="https://line.me/ti/p/dBGi0dUhfI" target="_blank">
+        <a href="https://line.me/ti/p/dBGi0dUhfI" target="_blank" id="line">
           <p class="recruit__inner-content-item">
             LINEで応募する
           </p>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="recruit__contact">
-      <h3 class="recruit__contact-title">
+      <h3 class="recruit__contact-title" id="mail">
         お問い合わせフォームから
       </h3>
       <div class="recruit__contact-form" id="recruit-form">

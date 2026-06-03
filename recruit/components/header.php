@@ -44,7 +44,7 @@ session_start();
             <a href="#salary" class="header__nav-link">給与詳細</a>
           </li>
           <li class="header__nav-item">
-            <a href="#simulation" class="header__nav-link">給与シミレーション</a>
+            <a href="#simulation" class="header__nav-link">給与シミュレーション</a>
           </li>
           <li class="header__nav-item">
             <a href="#working" class="header__nav-link">出稼ぎについて</a>
@@ -80,7 +80,7 @@ session_start();
             <a href="#salary" class="header__hamburger-menu-link">給与詳細</a>
           </li>
           <li class="header__hamburger-menu-item">
-            <a href="#simulation" class="header__hamburger-menu-link">給与シミレーション</a>
+            <a href="#simulation" class="header__hamburger-menu-link">給与シミュレーション</a>
           </li>
           <li class="header__hamburger-menu-item">
             <a href="#working" class="header__hamburger-menu-link">出稼ぎについて</a>

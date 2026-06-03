@@ -57,10 +57,6 @@ $_SESSION['key'] = $token;
         <input type="radio" name="mibun" value="本籍記載のある住民票" id="address">
         <label for="address"> 本籍記載のある住民票</label>
       </div>
-      <div class="form-box-radio-inner">
-        <input type="radio" name="mibun" value="ECT" id="ect">
-        <label for="ect"> ECT</label>
-      </div>
     </div>
 
     <div class="form-box-radio">
@@ -72,8 +68,8 @@ $_SESSION['key'] = $token;
         <label for="keiken"> あり</label>
       </div>
       <div class="form-box-radio-inner">
-        <input type="radio" name="keiken" value="なし" id="keiken">
-        <label for="keiken"> なし</label>
+        <input type="radio" name="keiken" value="なし" id="keiken2">
+        <label for="keiken2"> なし</label>
       </div>
     </div>
 
@@ -85,27 +81,27 @@ $_SESSION['key'] = $token;
         <label class="hissu">ご希望勤務地</label>
       </div>
       <div class="form-box-radio-inner">
-        <input type="radio" name="work[]" value="日本橋" id="kinmu1">
+        <input type="radio" name="work" value="日本橋" id="kinmu1">
         <label for="kinmu1"> 日本橋</label>
       </div>
       <div class="form-box-radio-inner">
-        <input type="radio" name="work[]" value="難波" id="kinmu3">
+        <input type="radio" name="work" value="難波" id="kinmu3">
         <label for="kinmu3"> 難波</label>
       </div>
       <div class="form-box-radio-inner">
-        <input type="radio" name="work[]" value="天王寺" id="kinmu6">
+        <input type="radio" name="work" value="天王寺" id="kinmu6">
         <label for="kinmu6"> 天王寺</label>
       </div>
       <div class="form-box-radio-inner">
-        <input type="radio" name="work[]" value="谷九" id="kinmu5">
+        <input type="radio" name="work" value="谷九" id="kinmu5">
         <label for="kinmu5"> 谷九</label>
       </div>
       <div class="form-box-radio-inner">
-        <input type="radio" name="work[]" value="京橋" id="kinmu4">
+        <input type="radio" name="work" value="京橋" id="kinmu4">
         <label for="kinmu4"> 京橋</label>
       </div>
       <div class="form-box-radio-inner">
-        <input type="radio" name="work[]" value="梅田" id="kinmu2">
+        <input type="radio" name="work" value="梅田" id="kinmu2">
         <label for="kinmu2"> 梅田</label>
       </div>
     </div>

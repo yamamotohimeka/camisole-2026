@@ -12,7 +12,7 @@
     <div class="container">
       <div class="working__inner">
         <div class="working__logo">
-          <img src="<?php echo $path; ?>assets/img/working-logo.png" alt="給与シミレーション">
+          <img src="<?php echo $path; ?>assets/img/working-logo.png" alt="給与シミュレーション">
         </div>
         <h2 class="working__title section-title">
           出稼ぎについて
@@ -47,8 +47,8 @@
           <div class="working__content-item" data-animate="fade">
             <p class="working__content-title">交通費について</p>
             <div class="working__content-text">
-              <p>8時間以上の待機を3日で片道の交通費支給!<br>
-                6日で交通費全額支給!</p>
+              <p>8時間以上の待機を3日で片道分の支給！<br>
+                7日で往復分を支給！</p>
             </div>
           </div>
         </div>
@@ -81,7 +81,8 @@
             <img src="<?php echo $path; ?>assets/img/working_3.png" alt="ボトム">
           </div>
           <div class="working__bottom-text">
-            トイレ・お風呂は別独立洗面台<br>
+            セパレートタイプのお部屋のみご用意！<br>
+            独立洗面台もあります♪<br>
             出勤前の身支度も完璧に♫<br>
             水回りも綺麗です
           </div>

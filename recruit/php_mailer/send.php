@@ -1,5 +1,5 @@
 <?php
-$store = 'コンチェルト求人'; //ここにサイト名
+$store = 'キャミソール求人'; //ここにサイト名
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -11,21 +11,14 @@ if (!isset($_POST['token'])) {
   exit;
 }
 if ($_SESSION['key'] === $_POST['token']) {
-  $name = $_POST['name'];
-  $tel1 = $_POST['tel1'];
-  $tel2 = $_POST['tel2'];
-  $tel3 = $_POST['tel3'];
-  $contact_type = $_POST['contact_type'];
-  $contact_info = $_POST['contact_info'];
-  $line = $_POST['line'];
-  $msg = $_POST['msg'];
-  $age = $_POST['age'];
-  $address = $_POST['address'];
-  $work = $_POST['work'];
-  $mibun = $_POST['mibun'];
-  $keiken = $_POST['keiken'];
-  $interview = $_POST['interview'];
-  $text = $_POST['text'];
+  $name = $_POST['name'] ?? '';
+  $furigana = $_POST['furigana'] ?? '';
+  $email = $_POST['email'] ?? '';
+  $age = $_POST['age'] ?? '';
+  $work = $_POST['work'] ?? '';
+  $mibun = $_POST['mibun'] ?? '';
+  $keiken = $_POST['keiken'] ?? '';
+  $text = $_POST['text'] ?? '';
   require 'vendor/autoload.php';
   require 'vendor/phpmailer/phpmailer/language/phpmailer.lang-ja.php';
 
@@ -52,7 +45,7 @@ if ($_SESSION['key'] === $_POST['token']) {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
-    $mail->setFrom($_ENV["MAIL_USER"], mb_encode_mimeheader('コンチェルト求人'));
+    $mail->setFrom($_ENV["MAIL_USER"], mb_encode_mimeheader('キャミソール求人'));
     // 受信者アドレス, 受信者名（受信者名はオプション）
     $mail->addAddress($_ENV["SEND_TO"], mb_encode_mimeheader($store));
 
@@ -64,18 +57,14 @@ if ($_SESSION['key'] === $_POST['token']) {
     【 お名前 】<br>
     {$name}<br>
     <br>
-    【 電話番号 】<br>
-    {$tel1}-{$tel2}-{$tel3}<br>
+    【 フリガナ 】<br>
+    {$furigana}<br>
     <br>
-    【 連絡先 】<br>
-    {$contact_type}<br>
-    {$contact_info}<br>
+    【 メールアドレス 】<br>
+    {$email}<br>
     <br>
     【 年齢 】<br>
     {$age}<br>
-    <br>
-    【 お住まい 】<br>
-    {$address}<br>
     <br>
     【 勤務希望地 】<br>
     {$work}<br>
@@ -86,14 +75,11 @@ if ($_SESSION['key'] === $_POST['token']) {
     【 風俗経験 】<br>
     {$keiken}<br>
     <br>
-    【 面接希望地 】<br>
-    {$interview}<br>
-    <br>
     【 ご質問など 】<br>
     {$text}<br>
     <br>
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", "JIS", "UTF-8");
-    
+
 
     $mail->send();  //送信
 
@@ -110,4 +96,3 @@ if ($_SESSION['key'] === $_POST['token']) {
     echo "メール送信に失敗しました. Mailer Error: {$mail->ErrorInfo}";
   }
 }
-?>

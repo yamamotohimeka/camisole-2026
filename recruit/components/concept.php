@@ -57,7 +57,7 @@
     <h3 class="concept__login-title">ホームページは完全ログイン制</h3>
     <p class="concept__login-text">
       <span>顔出しNG大歓迎！</span>当店のお客様用ホームページは<br class="tab"><span>会員様のみが閲覧</span>できる
-      <br class="pc">
+      <br>
       <span>完全ログインシステム</span>になります。
       <br>
       一度来店後会員になったお客様に限り会員番号とパスワードを
