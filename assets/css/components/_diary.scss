@@ -1,0 +1,213 @@
+@use "../mixin" as *;
+
+.diary {
+  padding-top: 70px;
+
+  @include tab {
+    padding-top: calc(50vw / (768 / 100));
+  }
+
+  h2 {
+    text-align: center;
+    padding-bottom: 80px;
+
+    @include tab {
+      padding-bottom: calc(50vw / (768 / 100));
+    }
+
+    img {
+      width: 698px;
+
+      @include tab {
+        width: calc(600vw / (768 / 100));
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include tab {
+      gap: calc(16vw / (768 / 100));
+      width: calc(680vw / (768 / 100));
+    }
+  }
+
+  &__card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px 24px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba($navy, 0.06);
+
+    @include tab {
+      flex-direction: column;
+      gap: calc(16vw / (768 / 100));
+      padding: calc(20vw / (768 / 100)) calc(20vw / (768 / 100));
+      border-radius: calc(12vw / (768 / 100));
+    }
+  }
+
+  &__card-img {
+    flex-shrink: 0;
+    align-self: flex-start;
+    width: 300px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+
+    @include tab {
+      width: 100%;
+      padding: calc(8vw / (768 / 100));
+      border-radius: calc(8vw / (768 / 100));
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+    padding-top: 2px;
+
+    @include tab {
+      gap: calc(12vw / (768 / 100));
+      padding-top: 0;
+    }
+  }
+
+  &__card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+
+    @include tab {
+      gap: calc(6vw / (768 / 100)) calc(12vw / (768 / 100));
+      padding-bottom: calc(12vw / (768 / 100));
+    }
+  }
+
+  &__card-name {
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 600;
+    color: $pink;
+    cursor: pointer;
+    text-align: left;
+    transition: opacity 0.2s;
+
+    @include tab {
+      font-size: calc(32vw / (768 / 100));
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__card-date {
+    font-size: 13px;
+    color: #888;
+    white-space: nowrap;
+
+    @include tab {
+      font-size: calc(24vw / (768 / 100));
+    }
+  }
+
+  &__card-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: $black;
+    margin: 0;
+
+    @include tab {
+      font-size: calc(26vw / (768 / 100));
+    }
+  }
+
+  &__pager {
+    max-width: 900px;
+    margin: 32px auto 0;
+
+    @include tab {
+      margin-top: calc(28vw / (768 / 100));
+      width: calc(680vw / (768 / 100));
+    }
+  }
+
+  &__pager-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    @include tab {
+      gap: calc(8vw / (768 / 100));
+    }
+  }
+
+  &__pager-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 12px;
+    background-color: #d4d4d4;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    @include tab {
+      min-width: calc(80vw / (768 / 100));
+      height: calc(80vw / (768 / 100));
+      padding: 0 calc(20vw / (768 / 100));
+      border-radius: calc(12vw / (768 / 100));
+      font-size: calc(26vw / (768 / 100));
+    }
+
+    &:hover {
+      background-color: #f897b8;
+      opacity: 1;
+    }
+
+    &--active {
+      background-color: #f897b8;
+      cursor: default;
+    }
+
+    &--prev,
+    &--next {
+      min-width: 72px;
+
+      @include tab {
+        min-width: calc(120vw / (768 / 100));
+      }
+    }
+  }
+}

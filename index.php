@@ -2,6 +2,8 @@
 $path = './';
 $title = 'CAMISOLE';
 $templete = 'top';
+require_once $path . 'hooks/diary.php';
+$topDiaryEntries = getLatestDiaryEntries(3);
 include $path . 'components/header.php'; ?>
 <main class="top">
 
@@ -31,6 +33,18 @@ include $path . 'components/header.php'; ?>
       <div class="top__slider__newface-arrow top__slider__newface-arrow--next"></div>
     </div>
   </section>
+
+  <?php if (!empty($topDiaryEntries)) : ?>
+    <section class="top__diary container">
+      <h2 class="top__diary__ttl">
+        <img src="<?php echo $path; ?>assets/img/diary-ttl.png" alt="写メ日記">
+      </h2>
+      <?php include $path . 'components/topDiary.php'; ?>
+      <div class="top__diary__btn">
+        <a href="<?php echo $path; ?>diary.php">写メ日記をもっと見る</a>
+      </div>
+    </section>
+  <?php endif; ?>
 
   <section class="top__sche container">
     <h2><img src="<?php echo $path; ?>assets/img/top-ttl.png" alt="本日のスケジュール"></h2>

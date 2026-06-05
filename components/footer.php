@@ -21,6 +21,12 @@
             </a>
           </li>
           <li class="footer__nav-item">
+            <a href="<?php echo $path; ?>diary.php" class="footer__nav-link">
+              <img src="<?php echo $path; ?>assets/img/diary-icon.png" alt="写メ日記">
+              <span>写メ日記</span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
             <a href="<?php echo $path; ?>about" class="footer__nav-link">
               <img src="<?php echo $path; ?>assets/img/store-icon.png" alt="当店について">
               <span>当店について</span>

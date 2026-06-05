@@ -57,6 +57,11 @@
             <span>出勤情報</span></a>
         </li>
         <li class="header__nav-item">
+          <a href="<?php echo $path; ?>diary.php" class="header__nav-link">
+            <img src="<?php echo $path; ?>assets/img/diary-icon.png" alt="写メ日記">
+            <span>写メ日記</span></a>
+        </li>
+        <li class="header__nav-item">
           <a href="<?php echo $path; ?>about" class="header__nav-link">
             <img src="<?php echo $path; ?>assets/img/store-icon.png" alt="当店について">
             <span>当店について</span></a>
@@ -70,6 +75,7 @@
           <a href="<?php echo $path; ?>access" class="header__nav-link">
             <img src="<?php echo $path; ?>assets/img/access-icon.png" alt="アクセス">
             <span>アクセス</span></a>
+        </li>
       </ul>
     </div>
 
@@ -99,6 +105,12 @@
             <a href="<?php echo $path; ?>schedule" class="header__tabNav-link">
               <img src="<?php echo $path; ?>assets/img/schedule-icon.png" alt="">
               <span>出勤情報</span>
+            </a>
+          </li>
+          <li class="header__tabNav-item">
+            <a href="<?php echo $path; ?>diary.php" class="header__tabNav-link">
+              <img src="<?php echo $path; ?>assets/img/diary-icon.png" alt="">
+              <span>写メ日記</span>
             </a>
           </li>
           <li class="header__tabNav-item">
